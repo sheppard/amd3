@@ -1,15 +1,19 @@
-d3 = (function(){
-  var d3 = {version: "3.2.2"}; // semver
 
+define('base',{version: "3.2.2-amd"}); // semver
 
+define('compat/date',[],function() {
 if (!Date.now) Date.now = function() {
   return +new Date;
 };
 
+});
+define('core/document',[],function() {
 var d3_document = document,
     d3_documentElement = d3_document.documentElement,
     d3_window = window;
 
+});
+define('compat/style',["../core/document"], function() {
 
 try {
   d3_document.createElement("div").style.setProperty("opacity", 0, "");
@@ -21,15 +25,25 @@ try {
   };
 }
 
+});
+define('compat/index',["./date","./style"], function() {
 
+});
+define('arrays/ascending',["base"], function(d3) {
 d3.ascending = function(a, b) {
   return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 };
 
+return d3.ascending;
+});
+define('arrays/descending',["base"], function(d3) {
 d3.descending = function(a, b) {
   return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
 };
 
+return d3.descending;
+});
+define('arrays/min',["base"], function(d3) {
 d3.min = function(array, f) {
   var i = -1,
       n = array.length,
@@ -45,6 +59,9 @@ d3.min = function(array, f) {
   return a;
 };
 
+return d3.min;
+});
+define('arrays/max',["base"], function(d3) {
 d3.max = function(array, f) {
   var i = -1,
       n = array.length,
@@ -60,6 +77,9 @@ d3.max = function(array, f) {
   return a;
 };
 
+return d3.max;
+});
+define('arrays/extent',["base"], function(d3) {
 d3.extent = function(array, f) {
   var i = -1,
       n = array.length,
@@ -82,6 +102,9 @@ d3.extent = function(array, f) {
   return [a, c];
 };
 
+return d3.extent;
+});
+define('arrays/sum',["base"], function(d3) {
 d3.sum = function(array, f) {
   var s = 0,
       n = array.length,
@@ -97,10 +120,16 @@ d3.sum = function(array, f) {
   return s;
 };
 
+return d3.sum;
+});
+define('math/number',[],function() {
 function d3_number(x) {
   return x != null && !isNaN(x);
 }
 
+return d3_number;
+});
+define('arrays/mean',["base","../math/number"], function(d3) {
 
 d3.mean = function(array, f) {
   var n = array.length,
@@ -116,6 +145,9 @@ d3.mean = function(array, f) {
   return j ? m : undefined;
 };
 
+return d3.mean;
+});
+define('arrays/quantile',["base"], function(d3) {
 // R-7 per <http://en.wikipedia.org/wiki/Quantile>
 d3.quantile = function(values, p) {
   var H = (values.length - 1) * p + 1,
@@ -125,6 +157,9 @@ d3.quantile = function(values, p) {
   return e ? v + e * (values[h] - v) : v;
 };
 
+return d3.quantile;
+});
+define('arrays/median',["base","../math/number","./ascending","./quantile"], function(d3) {
 
 d3.median = function(array, f) {
   if (arguments.length > 1) array = array.map(f);
@@ -132,6 +167,9 @@ d3.median = function(array, f) {
   return array.length ? d3.quantile(array.sort(d3.ascending), .5) : undefined;
 };
 
+return d3.median;
+});
+define('arrays/bisect',["base"], function(d3) {
 d3.bisector = function(f) {
   return {
     left: function(a, x, lo, hi) {
@@ -161,6 +199,9 @@ var d3_bisector = d3.bisector(function(d) { return d; });
 d3.bisectLeft = d3_bisector.left;
 d3.bisect = d3.bisectRight = d3_bisector.right;
 
+return d3.bisect;
+});
+define('arrays/shuffle',["base"], function(d3) {
 d3.shuffle = function(array) {
   var m = array.length, t, i;
   while (m) {
@@ -170,6 +211,9 @@ d3.shuffle = function(array) {
   return array;
 };
 
+return d3.shuffle;
+});
+define('arrays/permute',["base"], function(d3) {
 d3.permute = function(array, indexes) {
   var permutes = [],
       i = -1,
@@ -178,6 +222,9 @@ d3.permute = function(array, indexes) {
   return permutes;
 };
 
+return d3.permute;
+});
+define('arrays/zip',["base","./min"], function(d3) {
 
 d3.zip = function() {
   if (!(n = arguments.length)) return [];
@@ -193,33 +240,51 @@ function d3_zipLength(d) {
   return d.length;
 }
 
+return d3.zip;
+});
+define('arrays/transpose',["base","./zip"], function(d3) {
 
 d3.transpose = function(matrix) {
   return d3.zip.apply(d3, matrix);
 };
 
+return d3.transpose;
+});
+define('arrays/keys',["base"], function(d3) {
 d3.keys = function(map) {
   var keys = [];
   for (var key in map) keys.push(key);
   return keys;
 };
 
+return d3.keys;
+});
+define('arrays/values',["base"], function(d3) {
 d3.values = function(map) {
   var values = [];
   for (var key in map) values.push(map[key]);
   return values;
 };
 
+return d3.values;
+});
+define('arrays/entries',["base"], function(d3) {
 d3.entries = function(map) {
   var entries = [];
   for (var key in map) entries.push({key: key, value: map[key]});
   return entries;
 };
 
+return d3.entries;
+});
+define('arrays/merge',["base"], function(d3) {
 d3.merge = function(arrays) {
   return Array.prototype.concat.apply([], arrays);
 };
 
+return d3.merge;
+});
+define('arrays/range',["base"], function(d3) {
 d3.range = function(start, stop, step) {
   if (arguments.length < 3) {
     step = 1;
@@ -245,6 +310,9 @@ function d3_range_integerScale(x) {
   return k;
 }
 
+return d3.range;
+});
+define('core/class',[],function() {
 function d3_class(ctor, properties) {
   try {
     for (var key in properties) {
@@ -258,6 +326,9 @@ function d3_class(ctor, properties) {
   }
 }
 
+return d3_class;
+});
+define('arrays/map',["base","../core/class"], function(d3) {
 
 d3.map = function(object) {
   var map = new d3_Map;
@@ -308,6 +379,9 @@ d3_class(d3_Map, {
 var d3_map_prefix = "\0", // prevent collision with built-ins
     d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
 
+return d3.map;
+});
+define('arrays/nest',["base","./map"], function(d3) {
 
 d3.nest = function() {
   var nest = {},
@@ -405,6 +479,9 @@ d3.nest = function() {
   return nest;
 };
 
+return d3.nest;
+});
+define('arrays/set',["base","../core/class","./map"], function(d3) {
 
 d3.set = function(array) {
   var set = new d3_Set();
@@ -442,9 +519,17 @@ d3_class(d3_Set, {
   }
 });
 
+return d3.set;
+});
+define('arrays/index',["./ascending","./descending","./min","./max","./extent","./sum","./mean","./median","./quantile","./bisect","./shuffle","./permute","./zip","./transpose","./keys","./values","./entries","./merge","./range","./nest","./map","./set"], function() {
 
+});
+define('behavior/behavior',["base"], function(d3) {
 d3.behavior = {};
 
+return d3.behavior;
+});
+define('core/rebind',["base"], function(d3) {
 // Copies a variable number of methods from source to target.
 d3.rebind = function(target, source) {
   var i = 1, n = arguments.length, method;
@@ -462,6 +547,9 @@ function d3_rebind(target, source, method) {
   };
 }
 
+return d3.rebind;
+});
+define('core/vendor',["./document"], function() {
 
 function d3_vendorSymbol(object, name) {
   if (name in object) return name;
@@ -474,6 +562,8 @@ function d3_vendorSymbol(object, name) {
 
 var d3_vendorPrefixes = ["webkit", "ms", "moz", "Moz", "o", "O"];
 
+});
+define('core/array',["./document"], function() {
 
 var d3_array = d3_arraySlice; // conversion for NodeLists
 
@@ -505,8 +595,13 @@ function(array, prototype) {
   for (var property in prototype) array[property] = prototype[property];
 };
 
+});
+define('core/noop',[],function() {
 function d3_noop() {}
 
+return d3_noop;
+});
+define('event/dispatch',["base","../arrays/map"], function(d3) {
 
 d3.dispatch = function() {
   var dispatch = new d3_dispatch,
@@ -576,6 +671,9 @@ function d3_dispatch_event(dispatch) {
   return event;
 }
 
+return d3.dispatch;
+});
+define('event/event',["base","./dispatch"], function(d3) {
 
 d3.event = null;
 
@@ -626,12 +724,18 @@ function d3_eventDispatch(target) {
   return dispatch;
 }
 
+return d3.event;
+});
+define('format/requote',["base"], function(d3) {
 d3.requote = function(s) {
   return s.replace(d3_requote_re, "\\$&");
 };
 
 var d3_requote_re = /[\\\^\$\*\+\?\|\[\]\(\)\.\{\}]/g;
 
+return d3.requote;
+});
+define('selection/select',["./selection"], function() {
 
 d3_selectionPrototype.select = function(selector) {
   var subgroups = [],
@@ -664,6 +768,8 @@ function d3_selection_selector(selector) {
   };
 }
 
+});
+define('selection/selectAll',["../core/array","./selection"], function() {
 
 d3_selectionPrototype.selectAll = function(selector) {
   var subgroups = [],
@@ -690,6 +796,8 @@ function d3_selection_selectorAll(selector) {
   };
 }
 
+});
+define('core/ns',["base"], function(d3) {
 var d3_nsPrefix = {
   svg: "http://www.w3.org/2000/svg",
   xhtml: "http://www.w3.org/1999/xhtml",
@@ -713,6 +821,9 @@ d3.ns = {
   }
 };
 
+return d3.ns;
+});
+define('selection/attr',["../core/ns","./selection"], function() {
 
 d3_selectionPrototype.attr = function(name, value) {
   if (arguments.length < 2) {
@@ -774,10 +885,15 @@ function d3_selection_attr(name, value) {
       : (name.local ? attrConstantNS : attrConstant));
 }
 
+});
+define('format/collapse',[],function() {
 function d3_collapse(s) {
   return s.trim().replace(/\s+/g, " ");
 }
 
+return d3_collapse;
+});
+define('selection/classed',["../format/collapse","../format/requote","./selection"], function() {
 
 d3_selectionPrototype.classed = function(name, value) {
   if (arguments.length < 2) {
@@ -848,6 +964,8 @@ function d3_selection_classedName(name) {
   };
 }
 
+});
+define('selection/style',["../core/document","./selection"], function() {
 
 d3_selectionPrototype.style = function(name, value, priority) {
   var n = arguments.length;
@@ -903,6 +1021,8 @@ function d3_selection_style(name, value, priority) {
       ? styleFunction : styleConstant);
 }
 
+});
+define('selection/property',["./selection"], function() {
 
 d3_selectionPrototype.property = function(name, value) {
   if (arguments.length < 2) {
@@ -946,6 +1066,8 @@ function d3_selection_property(name, value) {
       ? propertyFunction : propertyConstant);
 }
 
+});
+define('selection/text',["./selection"], function() {
 
 d3_selectionPrototype.text = function(value) {
   return arguments.length
@@ -956,6 +1078,8 @@ d3_selectionPrototype.text = function(value) {
       : this.node().textContent;
 };
 
+});
+define('selection/html',["./selection"], function() {
 
 d3_selectionPrototype.html = function(value) {
   return arguments.length
@@ -966,6 +1090,8 @@ d3_selectionPrototype.html = function(value) {
       : this.node().innerHTML;
 };
 
+});
+define('selection/append',["../core/document","../core/ns","./selection"], function() {
 
 // TODO append(node)?
 // TODO append(function)?
@@ -983,6 +1109,8 @@ d3_selectionPrototype.append = function(name) {
   return this.select(name.local ? appendNS : append);
 };
 
+});
+define('selection/insert',["../core/document","../core/ns","./selection"], function() {
 
 d3_selectionPrototype.insert = function(name, before) {
   name = d3.ns.qualify(name);
@@ -1004,6 +1132,8 @@ d3_selectionPrototype.insert = function(name, before) {
   return this.select(name.local ? insertNS : insert);
 };
 
+});
+define('selection/remove',["./selection"], function() {
 
 // TODO remove(selector)?
 // TODO remove(node)?
@@ -1015,6 +1145,8 @@ d3_selectionPrototype.remove = function() {
   });
 };
 
+});
+define('selection/data',["../arrays/map","./selection"], function() {
 
 d3_selectionPrototype.data = function(value, key) {
   var i = -1,
@@ -1132,6 +1264,8 @@ function d3_selection_dataNode(data) {
   return {__data__: data};
 }
 
+});
+define('selection/datum',["./selection"], function() {
 
 d3_selectionPrototype.datum = function(value) {
   return arguments.length
@@ -1139,6 +1273,8 @@ d3_selectionPrototype.datum = function(value) {
       : this.property("__data__");
 };
 
+});
+define('selection/filter',["./selection"], function() {
 
 d3_selectionPrototype.filter = function(filter) {
   var subgroups = [],
@@ -1167,6 +1303,8 @@ function d3_selection_filter(selector) {
   };
 }
 
+});
+define('selection/order',["./selection"], function() {
 
 d3_selectionPrototype.order = function() {
   for (var j = -1, m = this.length; ++j < m;) {
@@ -1180,6 +1318,8 @@ d3_selectionPrototype.order = function() {
   return this;
 };
 
+});
+define('selection/sort',["../arrays/ascending","./selection"], function() {
 
 d3_selectionPrototype.sort = function(comparator) {
   comparator = d3_selection_sortComparator.apply(this, arguments);
@@ -1194,6 +1334,8 @@ function d3_selection_sortComparator(comparator) {
   };
 }
 
+});
+define('selection/each',["./selection"], function() {
 
 d3_selectionPrototype.each = function(callback) {
   return d3_selection_each(this, function(node, i, j) {
@@ -1210,6 +1352,8 @@ function d3_selection_each(groups, callback) {
   return groups;
 }
 
+});
+define('selection/call',["../core/array","./selection"], function() {
 
 d3_selectionPrototype.call = function(callback) {
   var args = d3_array(arguments);
@@ -1217,11 +1361,15 @@ d3_selectionPrototype.call = function(callback) {
   return this;
 };
 
+});
+define('selection/empty',["./selection"], function() {
 
 d3_selectionPrototype.empty = function() {
   return !this.node();
 };
 
+});
+define('selection/node',["./selection"], function() {
 
 d3_selectionPrototype.node = function() {
   for (var j = 0, m = this.length; j < m; j++) {
@@ -1233,6 +1381,8 @@ d3_selectionPrototype.node = function() {
   return null;
 };
 
+});
+define('selection/size',["./selection"], function() {
 
 d3_selectionPrototype.size = function() {
   var n = 0;
@@ -1240,6 +1390,8 @@ d3_selectionPrototype.size = function() {
   return n;
 };
 
+});
+define('selection/enter-select',["./selection","./enter"], function() {
 
 d3_selection_enterPrototype.select = function(selector) {
   var subgroups = [],
@@ -1266,6 +1418,8 @@ d3_selection_enterPrototype.select = function(selector) {
   return d3_selection(subgroups);
 };
 
+});
+define('selection/enter',["../core/array","./selection","./enter-select"], function() {
 
 function d3_selection_enter(selection) {
   d3_arraySubclass(selection, d3_selection_enterPrototype);
@@ -1285,6 +1439,8 @@ d3_selection_enterPrototype.call = d3_selectionPrototype.call;
 d3_selection_enterPrototype.size = d3_selectionPrototype.size;
 
 
+});
+define('selection/transition',["./selection"], function() {
 
 d3_selectionPrototype.transition = function() {
   var id = d3_transitionInheritId || ++d3_transitionId,
@@ -1306,6 +1462,8 @@ d3_selectionPrototype.transition = function() {
   return d3_transition(subgroups, id);
 };
 
+});
+define('selection/selection',["base","../core/array","../core/document","../core/vendor","./select","./selectAll","./attr","./classed","./style","./property","./text","./html","./append","./insert","./remove","./data","./datum","./filter","./order","./sort","./on","./each","./call","./empty","./node","./size","./enter","./transition"], function(d3) {
 
 function d3_selection(groups) {
   d3_arraySubclass(groups, d3_selectionPrototype);
@@ -1346,6 +1504,9 @@ d3.selectAll = function(nodes) {
 
 var d3_selectionRoot = d3.select(d3_documentElement);
 
+return d3.selection;
+});
+define('selection/on',["../arrays/map","../core/array","../core/document","../core/noop","../event/event","../format/requote","./selection"], function() {
 
 d3_selectionPrototype.on = function(type, listener, capture) {
   var n = arguments.length;
@@ -1444,6 +1605,8 @@ function d3_selection_onFilter(listener, argumentz) {
   };
 }
 
+});
+define('event/drag',["../core/document","../core/vendor","../selection/on"], function() {
 
 var d3_event_dragSelect = d3_vendorSymbol(d3_documentElement.style, "userSelect");
 
@@ -1466,6 +1629,8 @@ function d3_event_dragSuppress(type) {
   };
 }
 
+});
+define('event/mouse',["base","../core/document"], function(d3) {
 
 d3.mouse = function(container) {
   return d3_mousePoint(container, d3_eventSource());
@@ -1505,6 +1670,9 @@ function d3_mousePoint(container, e) {
   return [e.clientX - rect.left - container.clientLeft, e.clientY - rect.top - container.clientTop];
 };
 
+return d3.mouse;
+});
+define('event/touches',["base","../core/array","./event","./mouse"], function(d3) {
 
 d3.touches = function(container, touches) {
   if (arguments.length < 2) touches = d3_eventSource().touches;
@@ -1515,6 +1683,9 @@ d3.touches = function(container, touches) {
   }) : [];
 };
 
+return d3.touches;
+});
+define('behavior/drag',["../core/document","../core/rebind","../event/drag","../event/event","../event/mouse","../event/touches","./behavior"], function() {
 
 d3.behavior.drag = function() {
   var event = d3_eventDispatch(drag, "drag", "dragstart", "dragend"),
@@ -1586,6 +1757,8 @@ d3.behavior.drag = function() {
   return d3.rebind(drag, event, "on");
 };
 
+});
+define('behavior/zoom',["../core/document","../core/rebind","../event/drag","../event/event","../event/mouse","../event/touches","../selection/selection","./behavior"], function() {
 
 d3.behavior.zoom = function() {
   var translate = [0, 0],
@@ -1772,13 +1945,19 @@ var d3_behavior_zoomDelta, d3_behavior_zoomWheel
     : "onmousewheel" in d3_document ? (d3_behavior_zoomDelta = function() { return d3.event.wheelDelta; }, "mousewheel")
     : (d3_behavior_zoomDelta = function() { return -d3.event.detail; }, "MozMousePixelScroll");
 
+});
+define('behavior/index',["./behavior","./drag","./zoom"], function() {
 
+});
+define('color/color',[],function() {
 function d3_Color() {}
 
 d3_Color.prototype.toString = function() {
   return this.rgb() + "";
 };
 
+});
+define('color/hsl',["base","./color","./rgb"], function(d3) {
 
 d3.hsl = function(h, s, l) {
   return arguments.length === 1
@@ -1842,6 +2021,9 @@ function d3_hsl_rgb(h, s, l) {
   return d3_rgb(vv(h + 120), vv(h), vv(h - 120));
 }
 
+return d3.hsl;
+});
+define('math/trigonometry',[],function() {
 var π = Math.PI,
     ε = 1e-6,
     ε2 = ε * ε,
@@ -1872,6 +2054,8 @@ function d3_haversin(x) {
   return (x = Math.sin(x / 2)) * x;
 }
 
+});
+define('color/hcl',["base","../math/trigonometry","./color","./lab","./rgb"], function(d3) {
 
 d3.hcl = function(h, c, l) {
   return arguments.length === 1
@@ -1911,6 +2095,9 @@ function d3_hcl_lab(h, c, l) {
   return d3_lab(l, Math.cos(h *= d3_radians) * c, Math.sin(h) * c);
 }
 
+return d3.hcl;
+});
+define('color/lab',["base","../math/trigonometry","./color","./hcl","./rgb"], function(d3) {
 
 d3.lab = function(l, a, b) {
   return arguments.length === 1
@@ -1976,6 +2163,9 @@ function d3_lab_xyz(x) {
   return x > 0.206893034 ? x * x * x : (x - 4 / 29) / 7.787037;
 }
 
+return d3.lab;
+});
+define('color/xyz',[],function() {
 function d3_xyz_lab(x) {
   return x > 0.008856 ? Math.pow(x, 1 / 3) : 7.787037 * x + 4 / 29;
 }
@@ -1984,6 +2174,8 @@ function d3_xyz_rgb(r) {
   return Math.round(255 * (r <= 0.00304 ? 12.92 * r : 1.055 * Math.pow(r, 1 / 2.4) - 0.055));
 }
 
+});
+define('color/rgb',["base","../arrays/map","./color","./hsl","./lab","./xyz"], function(d3) {
 
 d3.rgb = function(r, g, b) {
   return arguments.length === 1
@@ -2287,18 +2479,31 @@ d3_rgb_names.forEach(function(key, value) {
   d3_rgb_names.set(key, d3_rgb_parse(value, d3_rgb, d3_hsl_rgb));
 });
 
+return d3.rgb;
+});
+define('color/index',["./color","./rgb","./hsl","./hcl","./lab","./xyz"], function() {
 
+});
+define('core/functor',["base"], function(d3) {
 function d3_functor(v) {
   return typeof v === "function" ? v : function() { return v; };
 }
 
 d3.functor = d3_functor;
 
+return d3.functor;
+});
+define('core/index',["./functor","./ns","./rebind"], function() {
 
+});
+define('core/identity',[],function() {
 function d3_identity(d) {
   return d;
 }
 
+return d3_identity;
+});
+define('xhr/xhr',["base","../core/array","../core/document","../core/identity","../core/rebind","../event/dispatch"], function(d3) {
 
 d3.xhr = d3_xhrType(d3_identity);
 
@@ -2413,6 +2618,9 @@ function d3_xhr_fixCallback(callback) {
       : callback;
 }
 
+return d3.xhr;
+});
+define('dsv/dsv',["base","../arrays/set","../xhr/xhr"], function(d3) {
 
 d3.dsv = function(delimiter, mimeType) {
   var reFormat = new RegExp("[\"" + delimiter + "\n]"),
@@ -2548,13 +2756,24 @@ d3.dsv = function(delimiter, mimeType) {
   return dsv;
 };
 
+return d3.dsv;
+});
+define('dsv/csv',["base","./dsv"], function(d3) {
 
 d3.csv = d3.dsv(",", "text/csv");
 
+return d3.csv;
+});
+define('dsv/tsv',["base","./dsv"], function(d3) {
 
 d3.tsv = d3.dsv("\t", "text/tab-separated-values");
 
+return d3.tsv;
+});
+define('dsv/index',["./dsv","./csv","./tsv"], function() {
 
+});
+define('event/timer',["base","../core/document","../core/vendor"], function(d3) {
 
 var d3_timer_queueHead,
     d3_timer_queueTail,
@@ -2636,12 +2855,19 @@ function d3_timer_sweep() {
 var d3_timer_frame = d3_window[d3_vendorSymbol(d3_window, "requestAnimationFrame")]
     || function(callback) { setTimeout(callback, 17); };
 
+return d3.timer;
+});
+define('event/index',["./dispatch","./event","./mouse","./touches","./timer"], function() {
 
+});
+define('format/format-localized',[],function() {
 var d3_format_decimalPoint = ".",
     d3_format_thousandsSeparator = ",",
     d3_format_grouping = [3, 3];
 
 
+});
+define('format/formatPrefix',["base","./format"], function(d3) {
 
 var d3_formatPrefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"].map(d3_formatPrefix);
 
@@ -2664,12 +2890,18 @@ function d3_formatPrefix(d, i) {
   };
 }
 
+return d3.formatPrefix;
+});
+define('format/round',["base"], function(d3) {
 d3.round = function(x, n) {
   return n
       ? Math.round(x * (n = Math.pow(10, n))) / n
       : Math.round(x);
 };
 
+return d3.round;
+});
+define('format/format',["base","../arrays/map","../core/identity","./format-localized","./formatPrefix","./round"], function(d3) {
 
 d3.format = function(specifier) {
   var match = d3_format_re.exec(specifier),
@@ -2803,9 +3035,17 @@ if (d3_format_grouping) {
   };
 }
 
+return d3.format;
+});
+define('format/index',["./format","./formatPrefix","./requote","./round"], function() {
 
+});
+define('geo/geo',["base"], function(d3) {
 d3.geo = {};
 
+return d3.geo;
+});
+define('math/adder',[],function() {
 // Adds floating point numbers with twice the normal precision.
 // Reference: J. R. Shewchuk, Adaptive Precision Floating-Point Arithmetic and
 // Fast Robust Geometric Predicates, Discrete & Computational Geometry 18(3)
@@ -2841,6 +3081,9 @@ function d3_adderSum(a, b, o) {
   o.t = (a - av) + (b - bv); // a_roundoff + b_roundoff
 }
 
+return d3_adder;
+});
+define('geo/stream',["./geo"], function() {
 
 d3.geo.stream = function(object, listener) {
   if (object && d3_geo_streamObjectType.hasOwnProperty(object.type)) {
@@ -2912,6 +3155,8 @@ function d3_geo_streamPolygon(coordinates, listener) {
   listener.polygonEnd();
 }
 
+});
+define('geo/area',["../core/noop","../math/adder","../math/trigonometry","./geo","./stream"], function() {
 
 d3.geo.area = function(object) {
   d3_geo_areaSum = 0;
@@ -2975,6 +3220,8 @@ function d3_geo_areaRingStart() {
   };
 }
 
+});
+define('geo/cartesian',[],function() {
 // TODO
 // cross and scale return new vectors,
 // whereas add and normalize operate in-place
@@ -3023,6 +3270,8 @@ function d3_geo_cartesianNormalize(d) {
   d[2] /= l;
 }
 
+});
+define('geo/spherical',["../math/trigonometry"], function() {
 
 function d3_geo_spherical(cartesian) {
   return [
@@ -3035,6 +3284,8 @@ function d3_geo_sphericalEqual(a, b) {
   return Math.abs(a[0] - b[0]) < ε && Math.abs(a[1] - b[1]) < ε;
 }
 
+});
+define('geo/bounds',["../core/identity","../core/noop","./geo","./stream","./area","./cartesian","./spherical"], function() {
 
 d3.geo.bounds = (function() {
   var λ0, φ0, λ1, φ1, // bounds
@@ -3198,6 +3449,8 @@ d3.geo.bounds = (function() {
   };
 })();
 
+});
+define('geo/centroid',["../core/noop","../math/trigonometry","./geo","./stream"], function() {
 
 d3.geo.centroid = function(object) {
   d3_geo_centroidW0 = d3_geo_centroidW1 =
@@ -3344,10 +3597,15 @@ function d3_geo_centroidRingStart() {
   }
 }
 
+});
+define('core/true',[],function() {
 function d3_true() {
   return true;
 }
 
+return d3_true;
+});
+define('geo/clip-polygon',["../math/trigonometry","./spherical"], function() {
 
 // General spherical polygon clipping algorithm: takes a polygon, cuts it into
 // visible line segments and rejoins the segments by interpolating along the
@@ -3441,6 +3699,8 @@ function d3_geo_clipPolygonLinkCircular(array) {
   b.prev = a;
 }
 
+});
+define('geo/clip',["../arrays/merge","../core/noop","../math/trigonometry","./clip-polygon"], function() {
 
 function d3_geo_clip(pointVisible, clipLine, interpolate, polygonContains) {
   return function(listener) {
@@ -3573,6 +3833,8 @@ function d3_geo_clipSort(a, b) {
        - ((b = b.point)[0] < 0 ? b[1] - π / 2 - ε : π / 2 - b[1]);
 }
 
+});
+define('geo/point-in-polygon',["./geo","./area","./cartesian","../math/trigonometry"], function() {
 
 function d3_geo_pointInPolygon(point, polygon) {
   var meridian = point[0],
@@ -3641,6 +3903,8 @@ function d3_geo_pointInPolygon(point, polygon) {
   return (!southPole && !polar && d3_geo_areaRingSum < 0 || polarAngle < -ε) ^ (winding & 1);
 }
 
+});
+define('geo/clip-antimeridian',["../core/true","../math/trigonometry","./clip","./point-in-polygon"], function() {
 
 var d3_geo_clipAntimeridian = d3_geo_clip(
     d3_true,
@@ -3739,6 +4003,8 @@ function d3_geo_clipAntimeridianPolygonContains(polygon) {
   return d3_geo_pointInPolygon(d3_geo_clipAntimeridianPoint, polygon);
 }
 
+});
+define('geo/clip-circle',["../math/trigonometry","./cartesian","./clip","./circle","./spherical","./point-in-polygon"], function() {
 
 // Clip features against a small circle centered at [0°, 0°].
 function d3_geo_clipCircle(radius) {
@@ -3916,6 +4182,8 @@ function d3_geo_clipCircle(radius) {
   }
 }
 
+});
+define('geo/clip-view',["../arrays/merge","../math/trigonometry","./clip","./clip-polygon"], function() {
 
 var d3_geo_clipViewMAX = 1e9;
 
@@ -4125,6 +4393,8 @@ function d3_geo_clipViewT(num, denominator, t) {
   return true;
 }
 
+});
+define('geo/compose',[],function() {
 function d3_geo_compose(a, b) {
 
   function compose(x, y) {
@@ -4138,6 +4408,8 @@ function d3_geo_compose(a, b) {
   return compose;
 }
 
+});
+define('geo/conic',["../math/trigonometry","./projection"], function() {
 
 function d3_geo_conic(projectAt) {
   var φ0 = 0,
@@ -4153,6 +4425,8 @@ function d3_geo_conic(projectAt) {
   return p;
 }
 
+});
+define('geo/conic-equal-area',["../math/trigonometry","./geo","./conic","./projection"], function() {
 
 function d3_geo_conicEqualArea(φ0, φ1) {
   var sinφ0 = Math.sin(φ0),
@@ -4183,6 +4457,8 @@ function d3_geo_conicEqualArea(φ0, φ1) {
   return d3_geo_conic(d3_geo_conicEqualArea);
 }).raw = d3_geo_conicEqualArea;
 
+});
+define('geo/albers',["./conic-equal-area","./geo"], function() {
 
 // ESRI:102003
 d3.geo.albers = function() {
@@ -4193,6 +4469,8 @@ d3.geo.albers = function() {
       .scale(1070);
 };
 
+});
+define('geo/albers-usa',["./albers","./conic-equal-area","./geo"], function() {
 
 // A composite projection for the United States, configured by default for
 // 960×500. Also works quite well at 960×600 with scale 1285. The set of
@@ -4320,6 +4598,8 @@ d3.geo.albersUsa = function() {
   return albersUsa.scale(1070);
 };
 
+});
+define('geo/path-area',["../core/noop"], function() {
 
 // TODO Unify this code with d3.geom.polygon area?
 
@@ -4360,6 +4640,8 @@ function d3_geo_pathAreaRingStart() {
   };
 }
 
+});
+define('geo/path-bounds',["../core/noop"], function() {
 
 var d3_geo_pathBoundsX0,
     d3_geo_pathBoundsY0,
@@ -4381,6 +4663,8 @@ function d3_geo_pathBoundsPoint(x, y) {
   if (y > d3_geo_pathBoundsY1) d3_geo_pathBoundsY1 = y;
 }
 
+});
+define('geo/path-buffer',[],function() {
 function d3_geo_pathBuffer() {
   var pointCircle = d3_geo_pathBufferCircle(4.5),
       buffer = [];
@@ -4441,6 +4725,8 @@ function d3_geo_pathBufferCircle(radius) {
       + "z";
 }
 
+});
+define('geo/path-centroid',["./centroid"], function() {
 
 // TODO Unify this code with d3.geom.polygon centroid?
 // TODO Enforce positive area for exterior, negative area for interior?
@@ -4519,6 +4805,8 @@ function d3_geo_pathCentroidRingStart() {
   };
 }
 
+});
+define('geo/path-context',["../core/noop","../math/trigonometry"], function() {
 
 function d3_geo_pathContext(context) {
   var pointRadius = 4.5;
@@ -4567,6 +4855,8 @@ function d3_geo_pathContext(context) {
   return stream;
 }
 
+});
+define('geo/resample',["../math/trigonometry","./cartesian","./stream"], function() {
 
 function d3_geo_resample(project) {
   var δ2 = .5, // precision, px²
@@ -4663,6 +4953,8 @@ function d3_geo_resample(project) {
   return resample;
 }
 
+});
+define('geo/path',["../core/identity","../math/trigonometry","./albers-usa","./area","./bounds","./centroid","./geo","./path-area","./path-bounds","./path-buffer","./path-centroid","./path-context","./projection","./resample","./stream"], function() {
 
 d3.geo.path = function() {
   var pointRadius = 4.5,
@@ -4746,6 +5038,8 @@ function d3_geo_pathProjectStream(project) {
   };
 }
 
+});
+define('geo/projection',["../core/identity","../core/rebind","../math/trigonometry","./clip-antimeridian","./clip-circle","./clip-view","./compose","./geo","./path","./resample","./rotation","./stream"], function() {
 
 d3.geo.projection = d3_geo_projection;
 d3.geo.projectionMutator = d3_geo_projectionMutator;
@@ -4867,6 +5161,8 @@ function d3_geo_projectionRadiansRotate(rotate, stream) {
   };
 }
 
+});
+define('geo/equirectangular',["./geo","./projection"], function() {
 
 function d3_geo_equirectangular(λ, φ) {
   return [λ, φ];
@@ -4876,6 +5172,8 @@ function d3_geo_equirectangular(λ, φ) {
   return d3_geo_projection(d3_geo_equirectangular);
 }).raw = d3_geo_equirectangular.invert = d3_geo_equirectangular;
 
+});
+define('geo/rotation',["../math/trigonometry","./equirectangular","./geo"], function() {
 
 d3.geo.rotation = function(rotate) {
   rotate = d3_geo_rotation(rotate[0] % 360 * d3_radians, rotate[1] * d3_radians, rotate.length > 2 ? rotate[2] * d3_radians : 0);
@@ -4946,6 +5244,8 @@ function d3_geo_rotationφγ(δφ, δγ) {
   return rotation;
 }
 
+});
+define('geo/circle',["../math/trigonometry","./cartesian","./geo","./rotation","./spherical"], function() {
 
 d3.geo.circle = function() {
   var origin = [0, 0],
@@ -5023,6 +5323,8 @@ function d3_geo_circleAngle(cr, point) {
   return ((-a[2] < 0 ? -angle : angle) + 2 * Math.PI - ε) % (2 * Math.PI);
 }
 
+});
+define('geo/distance',["../math/trigonometry","./geo"], function() {
 
 // Length returned in radians; multiply by radius for distance.
 d3.geo.distance = function(a, b) {
@@ -5035,6 +5337,8 @@ d3.geo.distance = function(a, b) {
   return Math.atan2(Math.sqrt((t = cosφ1 * sinΔλ) * t + (t = cosφ0 * sinφ1 - sinφ0 * cosφ1 * cosΔλ) * t), sinφ0 * sinφ1 + cosφ0 * cosφ1 * cosΔλ);
 };
 
+});
+define('geo/graticule',["../arrays/range","../math/trigonometry","./geo"], function() {
 
 d3.geo.graticule = function() {
   var x1, x0, X1, X0,
@@ -5135,14 +5439,22 @@ function d3_geo_graticuleY(x0, x1, dx) {
   return function(y) { return x.map(function(x) { return [x, y]; }); };
 }
 
+});
+define('core/source',[],function() {
 function d3_source(d) {
   return d.source;
 }
 
+return d3_source;
+});
+define('core/target',[],function() {
 function d3_target(d) {
   return d.target;
 }
 
+return d3_target;
+});
+define('geo/greatArc',["../core/source","../core/target","./geo","./distance"], function() {
 
 // @deprecated use {type: "LineString"} or d3.geo.distance instead.
 d3.geo.greatArc = function() {
@@ -5182,6 +5494,8 @@ d3.geo.greatArc = function() {
   return greatArc;
 };
 
+});
+define('geo/interpolate',["../math/trigonometry","./geo"], function() {
 
 d3.geo.interpolate = function(source, target) {
   return d3_geo_interpolate(
@@ -5219,6 +5533,8 @@ function d3_geo_interpolate(x0, y0, x1, y1) {
   return interpolate;
 };
 
+});
+define('geo/length',["../core/noop","../math/trigonometry","./geo","./stream"], function() {
 
 d3.geo.length = function(object) {
   d3_geo_lengthSum = 0;
@@ -5259,6 +5575,8 @@ function d3_geo_lengthLineStart() {
   }
 }
 
+});
+define('geo/azimuthal',[],function() {
 // Abstract azimuthal projection.
 function d3_geo_azimuthal(scale, angle) {
   function azimuthal(λ, φ) {
@@ -5285,6 +5603,8 @@ function d3_geo_azimuthal(scale, angle) {
   return azimuthal;
 }
 
+});
+define('geo/azimuthal-equal-area',["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_azimuthalEqualArea = d3_geo_azimuthal(
   function(cosλcosφ) { return Math.sqrt(2 / (1 + cosλcosφ)); },
@@ -5295,6 +5615,8 @@ var d3_geo_azimuthalEqualArea = d3_geo_azimuthal(
   return d3_geo_projection(d3_geo_azimuthalEqualArea);
 }).raw = d3_geo_azimuthalEqualArea;
 
+});
+define('geo/azimuthal-equidistant',["../core/identity","./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_azimuthalEquidistant = d3_geo_azimuthal(
   function(cosλcosφ) { var c = Math.acos(cosλcosφ); return c && c / Math.sin(c); },
@@ -5305,6 +5627,8 @@ var d3_geo_azimuthalEquidistant = d3_geo_azimuthal(
   return d3_geo_projection(d3_geo_azimuthalEquidistant);
 }).raw = d3_geo_azimuthalEquidistant;
 
+});
+define('geo/conic-conformal',["../math/trigonometry","./conic","./geo","./projection"], function() {
 
 function d3_geo_conicConformal(φ0, φ1) {
   var cosφ0 = Math.cos(φ0),
@@ -5338,6 +5662,8 @@ function d3_geo_conicConformal(φ0, φ1) {
   return d3_geo_conic(d3_geo_conicConformal);
 }).raw = d3_geo_conicConformal;
 
+});
+define('geo/conic-equidistant',["../math/trigonometry","./conic","./equirectangular","./geo","./projection"], function() {
 
 function d3_geo_conicEquidistant(φ0, φ1) {
   var cosφ0 = Math.cos(φ0),
@@ -5369,6 +5695,8 @@ function d3_geo_conicEquidistant(φ0, φ1) {
   return d3_geo_conic(d3_geo_conicEquidistant);
 }).raw = d3_geo_conicEquidistant;
 
+});
+define('geo/gnomonic',["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_gnomonic = d3_geo_azimuthal(
   function(cosλcosφ) { return 1 / cosλcosφ; },
@@ -5379,6 +5707,8 @@ var d3_geo_gnomonic = d3_geo_azimuthal(
   return d3_geo_projection(d3_geo_gnomonic);
 }).raw = d3_geo_gnomonic;
 
+});
+define('geo/mercator',["../math/trigonometry","./geo","./projection"], function() {
 
 function d3_geo_mercator(λ, φ) {
   return [λ, Math.log(Math.tan(π / 4 + φ / 2))];
@@ -5425,6 +5755,8 @@ function d3_geo_mercatorProjection(project) {
   return d3_geo_mercatorProjection(d3_geo_mercator);
 }).raw = d3_geo_mercator;
 
+});
+define('geo/orthographic',["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_orthographic = d3_geo_azimuthal(
   function() { return 1; },
@@ -5435,6 +5767,8 @@ var d3_geo_orthographic = d3_geo_azimuthal(
   return d3_geo_projection(d3_geo_orthographic);
 }).raw = d3_geo_orthographic;
 
+});
+define('geo/stereographic',["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_stereographic = d3_geo_azimuthal(
   function(cosλcosφ) { return 1 / (1 + cosλcosφ); },
@@ -5445,6 +5779,8 @@ var d3_geo_stereographic = d3_geo_azimuthal(
   return d3_geo_projection(d3_geo_stereographic);
 }).raw = d3_geo_stereographic;
 
+});
+define('geo/transverse-mercator',["../math/trigonometry","./geo","./mercator","./projection"], function() {
 
 function d3_geo_transverseMercator(λ, φ) {
   var B = Math.cos(φ) * Math.sin(λ);
@@ -5465,11 +5801,21 @@ d3_geo_transverseMercator.invert = function(x, y) {
   return d3_geo_mercatorProjection(d3_geo_transverseMercator);
 }).raw = d3_geo_transverseMercator;
 
+});
+define('geo/index',["./geo","./area","./bounds","./centroid","./circle","./distance","./graticule","./greatArc","./interpolate","./length","./path","./path-area","./path-buffer","./path-centroid","./path-context","./projection","./rotation","./stream","./albers","./albers-usa","./azimuthal","./azimuthal-equal-area","./azimuthal-equidistant","./conic-conformal","./conic-equal-area","./conic-equidistant","./equirectangular","./gnomonic","./mercator","./orthographic","./stereographic","./transverse-mercator"], function() {
 
+});
+define('geom/geom',["base"], function(d3) {
 d3.geom = {};
 
+return d3.geom;
+});
+define('svg/svg',["base"], function(d3) {
 d3.svg = {};
 
+return d3.svg;
+});
+define('svg/line',["../arrays/map","../core/functor","../core/identity","../core/true","./svg"], function() {
 
 function d3_svg_line(projection) {
   var x = d3_svg_lineX,
@@ -5909,6 +6255,8 @@ function d3_svg_lineMonotone(points) {
       : points[0] + d3_svg_lineHermite(points, d3_svg_lineMonotoneTangents(points));
 }
 
+});
+define('geom/hull',["../svg/line","./geom"], function() {
 
 /**
  * Computes the 2D convex hull of a set of points using Graham's scanning
@@ -6028,6 +6376,8 @@ function d3_geom_hullCCW(i1, i2, i3, v) {
   return (f - b) * (c - a) - (d - b) * (e - a) > 0;
 }
 
+});
+define('geom/polygon',["./geom"], function() {
 
 d3.geom.polygon = function(coordinates) {
 
@@ -6110,6 +6460,8 @@ function d3_geom_polygonIntersect(c, d, a, b) {
   return [x1 + ua * x21, y1 + ua * y21];
 }
 
+});
+define('geom/delaunay',["./geom","./voronoi"], function() {
 
 // @deprecated; use d3.geom.voronoi links instead.
 d3.geom.delaunay = function(vertices) {
@@ -6140,6 +6492,8 @@ d3.geom.delaunay = function(vertices) {
   return triangles;
 };
 
+});
+define('geom/voronoi',["../arrays/range","../core/functor","../math/trigonometry","../svg/line","./delaunay","./geom","./polygon"], function() {
 
 // Adapted from Nicolas Garcia Belmonte's JIT implementation:
 // http://blog.thejit.org/2010/02/12/voronoi-tessellation/
@@ -6679,6 +7033,8 @@ function d3_geom_voronoiTessellate(points, callback) {
   }
 }
 
+});
+define('geom/quadtree',["../core/functor","../svg/line","./geom"], function() {
 
 d3.geom.quadtree = function(points, x1, y1, x2, y2) {
   var x = d3_svg_lineX,
@@ -6867,7 +7223,11 @@ function d3_geom_quadtreeVisit(f, node, x1, y1, x2, y2) {
   }
 }
 
+});
+define('geom/index',["./geom","./hull","./polygon","./voronoi","./delaunay","./quadtree"], function() {
 
+});
+define('interpolate/rgb',["../color/rgb"], function() {
 
 d3.interpolateRgb = d3_interpolateRgb;
 
@@ -6888,6 +7248,8 @@ function d3_interpolateRgb(a, b) {
   };
 }
 
+});
+define('math/transform',["base","../core/document","../core/ns"], function(d3) {
 
 d3.transform = function(string) {
   var g = d3_document.createElementNS(d3.ns.prefix.svg, "g");
@@ -6951,6 +7313,9 @@ function d3_transformCombine(a, b, k) {
 
 var d3_transformIdentity = {a: 1, b: 0, c: 0, d: 1, e: 0, f: 0};
 
+return d3.transform;
+});
+define('interpolate/number',[],function() {
 d3.interpolateNumber = d3_interpolateNumber;
 
 function d3_interpolateNumber(a, b) {
@@ -6958,6 +7323,8 @@ function d3_interpolateNumber(a, b) {
   return function(t) { return a + b * t; };
 }
 
+});
+define('interpolate/transform',["../math/transform","./number"], function() {
 
 d3.interpolateTransform = d3_interpolateTransform;
 
@@ -7013,6 +7380,8 @@ function d3_interpolateTransform(a, b) {
   };
 }
 
+});
+define('interpolate/object',["./interpolate"], function() {
 
 d3.interpolateObject = d3_interpolateObject;
 
@@ -7038,6 +7407,8 @@ function d3_interpolateObject(a, b) {
   };
 }
 
+});
+define('interpolate/string',["./number"], function() {
 
 d3.interpolateString = d3_interpolateString;
 
@@ -7126,6 +7497,8 @@ function d3_interpolateString(a, b) {
 
 var d3_interpolate_number = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 
+});
+define('interpolate/interpolate',["base","../color/color","../color/rgb","./rgb","./transform","./object","./array","./number","./string"], function(d3) {
 
 d3.interpolate = d3_interpolate;
 
@@ -7151,6 +7524,9 @@ d3.interpolators = [
   }
 ];
 
+return d3.interpolate;
+});
+define('interpolate/array',["./interpolate"], function() {
 
 d3.interpolateArray = d3_interpolateArray;
 
@@ -7170,6 +7546,8 @@ function d3_interpolateArray(a, b) {
   };
 }
 
+});
+define('interpolate/ease',["base","../arrays/map","../core/identity","../math/trigonometry"], function(d3) {
 
 var d3_ease_default = function() { return d3_identity; };
 
@@ -7278,6 +7656,9 @@ function d3_ease_bounce(t) {
       : 7.5625 * (t -= 2.625 / 2.75) * t + .984375;
 }
 
+return d3.ease;
+});
+define('interpolate/hcl',["../color/hcl"], function() {
 
 d3.interpolateHcl = d3_interpolateHcl;
 
@@ -7298,6 +7679,8 @@ function d3_interpolateHcl(a, b) {
   };
 }
 
+});
+define('interpolate/hsl',["../color/hsl"], function() {
 
 d3.interpolateHsl = d3_interpolateHsl;
 
@@ -7320,6 +7703,8 @@ function d3_interpolateHsl(a, b) {
   };
 }
 
+});
+define('interpolate/lab',["../color/lab"], function() {
 
 d3.interpolateLab = d3_interpolateLab;
 
@@ -7337,6 +7722,8 @@ function d3_interpolateLab(a, b) {
   };
 }
 
+});
+define('interpolate/round',[],function() {
 d3.interpolateRound = d3_interpolateRound;
 
 function d3_interpolateRound(a, b) {
@@ -7344,6 +7731,8 @@ function d3_interpolateRound(a, b) {
   return function(t) { return Math.round(a + b * t); };
 }
 
+});
+define('interpolate/uninterpolate',[],function() {
 function d3_uninterpolateNumber(a, b) {
   b = b - (a = +a) ? 1 / (b - a) : 0;
   return function(x) { return (x - a) * b; };
@@ -7354,9 +7743,16 @@ function d3_uninterpolateClamp(a, b) {
   return function(x) { return Math.max(0, Math.min(1, (x - a) * b)); };
 }
 
+});
+define('interpolate/index',["./array","./ease","./hcl","./hsl","./interpolate","./lab","./number","./object","./rgb","./round","./string","./transform","./uninterpolate"], function() {
 
+});
+define('layout/layout',["base"], function(d3) {
 d3.layout = {};
 
+return d3.layout;
+});
+define('layout/bundle',["./layout"], function() {
 
 // Implements hierarchical edge bundling using Holten's algorithm. For each
 // input link, a path is computed that travels through the tree, up the parent
@@ -7416,6 +7812,8 @@ function d3_layout_bundleLeastCommonAncestor(a, b) {
   return sharedNode;
 }
 
+});
+define('layout/chord',["../arrays/range","../math/trigonometry","./layout"], function() {
 
 d3.layout.chord = function() {
   var chord = {},
@@ -7571,6 +7969,8 @@ d3.layout.chord = function() {
   return chord;
 };
 
+});
+define('layout/force',["../behavior/drag","../core/identity","../core/rebind","../event/event","../event/dispatch","../event/timer","../geom/quadtree","./layout"], function() {
 
 // A rudimentary force layout using Gauss-Seidel.
 d3.layout.force = function() {
@@ -7923,6 +8323,8 @@ function d3_layout_forceAccumulate(quad, alpha, charges) {
 var d3_layout_forceLinkDistance = 20,
     d3_layout_forceLinkStrength = 1;
 
+});
+define('layout/hierarchy',["../arrays/merge","../core/rebind","./layout"], function() {
 
 d3.layout.hierarchy = function() {
   var sort = d3_layout_hierarchySort,
@@ -8037,6 +8439,8 @@ function d3_layout_hierarchyLinks(nodes) {
   }));
 }
 
+});
+define('layout/partition',["./layout","./hierarchy"], function() {
 
 d3.layout.partition = function() {
   var hierarchy = d3.layout.hierarchy(),
@@ -8087,6 +8491,8 @@ d3.layout.partition = function() {
   return d3_layout_hierarchyRebind(partition, hierarchy);
 };
 
+});
+define('layout/pie',["../arrays/range","../arrays/sum","../math/trigonometry","./layout"], function() {
 
 d3.layout.pie = function() {
   var value = Number,
@@ -8183,6 +8589,8 @@ d3.layout.pie = function() {
 
 var d3_layout_pieSortByValue = {};
 
+});
+define('layout/stack',["../arrays/map","../arrays/permute","../arrays/range","./layout"], function() {
 
 // data is two-dimensional array of x,y; we populate y0
 d3.layout.stack = function() {
@@ -8425,6 +8833,8 @@ function d3_layout_stackSum(p, d) {
   return p + d[1];
 }
 
+});
+define('layout/histogram',["../arrays/bisect","../arrays/min","../arrays/max","../core/functor","./layout"], function() {
 
 d3.layout.histogram = function() {
   var frequency = true,
@@ -8531,6 +8941,8 @@ function d3_layout_histogramRange(values) {
   return [d3.min(values), d3.max(values)];
 }
 
+});
+define('layout/tree',["./layout","./hierarchy"], function() {
 
 // Node-link tree diagram using the Reingold-Tilford "tidy" algorithm
 d3.layout.tree = function() {
@@ -8781,6 +9193,8 @@ function d3_layout_treeAncestor(vim, node, ancestor) {
       : ancestor;
 }
 
+});
+define('layout/pack',["./layout","./hierarchy","./tree"], function() {
 
 d3.layout.pack = function() {
   var hierarchy = d3.layout.hierarchy().sort(d3_layout_packSort),
@@ -8991,6 +9405,8 @@ function d3_layout_packPlace(a, b, c) {
   }
 }
 
+});
+define('layout/cluster',["../arrays/max","./layout","./hierarchy","./tree"], function() {
 
 // Implements a hierarchical layout using the cluster (or dendrogram)
 // algorithm.
@@ -9080,6 +9496,8 @@ function d3_layout_clusterRight(node) {
   return children && (n = children.length) ? d3_layout_clusterRight(children[n - 1]) : node;
 }
 
+});
+define('layout/treemap',["./layout","./hierarchy"], function() {
 
 // Squarified Treemaps by Mark Bruls, Kees Huizing, and Jarke J. van Wijk
 // Modified to support a target aspect ratio by Jeff Heer
@@ -9309,7 +9727,11 @@ function d3_layout_treemapPad(node, padding) {
   return {x: x, y: y, dx: dx, dy: dy};
 }
 
+});
+define('layout/index',["./layout","./bundle","./chord","./force","./partition","./pie","./stack","./histogram","./hierarchy","./pack","./cluster","./tree","./treemap"], function() {
 
+});
+define('math/random',["base"], function(d3) {
 d3.random = {
   normal: function(µ, σ) {
     var n = arguments.length;
@@ -9339,7 +9761,12 @@ d3.random = {
   }
 };
 
+return d3.random;
+});
+define('math/index',["./random","./transform"], function() {
 
+});
+define('scale/scale',["base"], function(d3) {
 d3.scale = {};
 
 function d3_scaleExtent(domain) {
@@ -9351,6 +9778,9 @@ function d3_scaleRange(scale) {
   return scale.rangeExtent ? scale.rangeExtent() : d3_scaleExtent(scale.range());
 }
 
+return d3.scale;
+});
+define('scale/bilinear',[],function() {
 function d3_scale_bilinear(domain, range, uninterpolate, interpolate) {
   var u = uninterpolate(domain[0], domain[1]),
       i = interpolate(range[0], range[1]);
@@ -9359,6 +9789,8 @@ function d3_scale_bilinear(domain, range, uninterpolate, interpolate) {
   };
 }
 
+});
+define('scale/nice',[],function() {
 function d3_scale_nice(domain, nice) {
   var i0 = 0,
       i1 = domain.length - 1,
@@ -9388,6 +9820,8 @@ var d3_scale_niceIdentity = {
   ceil: d3_identity
 };
 
+});
+define('scale/polylinear',["../arrays/bisect"], function() {
 
 function d3_scale_polylinear(domain, range, uninterpolate, interpolate) {
   var u = [],
@@ -9412,6 +9846,8 @@ function d3_scale_polylinear(domain, range, uninterpolate, interpolate) {
   };
 }
 
+});
+define('scale/linear',["../arrays/range","../core/rebind","../interpolate/interpolate","../interpolate/round","../interpolate/uninterpolate","../format/format","./bilinear","./nice","./polylinear","./scale"], function() {
 
 d3.scale.linear = function() {
   return d3_scale_linear([0, 1], [0, 1], d3_interpolate, false);
@@ -9531,6 +9967,8 @@ function d3_scale_linearTickFormat(domain, m, format) {
       : ",." + precision + "f");
 }
 
+});
+define('scale/log',["../format/format","./linear","./nice","./scale"], function() {
 
 d3.scale.log = function() {
   return d3_scale_log(d3.scale.linear().domain([0, Math.LN10]), 10, d3_scale_logp, d3_scale_powp, [1, 10]);
@@ -9639,6 +10077,8 @@ function d3_scale_pown(x) {
   return -Math.exp(-x);
 }
 
+});
+define('scale/pow',["./linear","./nice","./scale"], function() {
 
 d3.scale.pow = function() {
   return d3_scale_pow(d3.scale.linear(), 1, [0, 1]);
@@ -9695,11 +10135,15 @@ function d3_scale_powPow(e) {
   };
 }
 
+});
+define('scale/sqrt',["./pow","./scale"], function() {
 
 d3.scale.sqrt = function() {
   return d3.scale.pow().exponent(.5);
 };
 
+});
+define('scale/ordinal',["../arrays/map","../arrays/range","./scale"], function() {
 
 d3.scale.ordinal = function() {
   return d3_scale_ordinal([], {t: "range", a: [[]]});
@@ -9790,6 +10234,8 @@ function d3_scale_ordinal(domain, ranger) {
   return scale.domain(domain);
 }
 
+});
+define('scale/category',["./ordinal","./scale"], function() {
 
 /*
  * This product includes color specifications and designs developed by Cynthia
@@ -9846,6 +10292,8 @@ var d3_category20c = [
   "#636363", "#969696", "#bdbdbd", "#d9d9d9"
 ];
 
+});
+define('scale/quantile',["../arrays/ascending","../arrays/bisect","../arrays/quantile","./scale"], function() {
 
 d3.scale.quantile = function() {
   return d3_scale_quantile([], []);
@@ -9889,6 +10337,8 @@ function d3_scale_quantile(domain, range) {
   return rescale();
 }
 
+});
+define('scale/quantize',["./scale"], function() {
 
 d3.scale.quantize = function() {
   return d3_scale_quantize(0, 1, [0, 1]);
@@ -9933,6 +10383,8 @@ function d3_scale_quantize(x0, x1, range) {
   return rescale();
 }
 
+});
+define('scale/threshold',["../arrays/bisect","./scale"], function() {
 
 d3.scale.threshold = function() {
   return d3_scale_threshold([.5], [0, 1]);
@@ -9968,6 +10420,8 @@ function d3_scale_threshold(domain, range) {
   return scale;
 };
 
+});
+define('scale/identity',["./linear","./scale"], function() {
 
 d3.scale.identity = function() {
   return d3_scale_identity([0, 1]);
@@ -10000,8 +10454,14 @@ function d3_scale_identity(domain) {
   return identity;
 }
 
+});
+define('scale/index',["./scale","./linear","./log","./pow","./sqrt","./ordinal","./category","./quantile","./quantize","./threshold","./identity"], function() {
 
+});
+define('selection/index',["./selection"], function() {
 
+});
+define('svg/arc',["../core/functor","../math/trigonometry","./svg"], function() {
 
 d3.svg.arc = function() {
   var innerRadius = d3_svg_arcInnerRadius,
@@ -10099,6 +10559,8 @@ function d3_svg_arcEndAngle(d) {
   return d.endAngle;
 }
 
+});
+define('svg/line-radial',["./arc","./line","./svg"], function() {
 
 d3.svg.line.radial = function() {
   var line = d3_svg_line(d3_svg_lineRadial);
@@ -10123,6 +10585,8 @@ function d3_svg_lineRadial(points) {
   return points;
 }
 
+});
+define('svg/area',["../core/functor","../core/identity","../core/true","./svg","./line"], function() {
 
 function d3_svg_area(projection) {
   var x0 = d3_svg_lineX,
@@ -10239,6 +10703,8 @@ d3.svg.area = function() {
   return d3_svg_area(d3_identity);
 };
 
+});
+define('svg/area-radial',["./area","./svg","./line-radial"], function() {
 
 d3.svg.area.radial = function() {
   var area = d3_svg_area(d3_svg_lineRadial);
@@ -10251,6 +10717,8 @@ d3.svg.area.radial = function() {
   return area;
 };
 
+});
+define('svg/chord',["../core/functor","../core/source","../core/target","../math/trigonometry","./arc","./svg"], function() {
 
 d3.svg.chord = function() {
   var source = d3_source,
@@ -10336,6 +10804,8 @@ function d3_svg_chordRadius(d) {
   return d.radius;
 }
 
+});
+define('svg/diagonal',["../core/functor","../core/source","../core/target","./svg"], function() {
 
 d3.svg.diagonal = function() {
   var source = d3_source,
@@ -10376,6 +10846,8 @@ function d3_svg_diagonalProjection(d) {
   return [d.x, d.y];
 }
 
+});
+define('svg/diagonal-radial',["./arc","./diagonal","./svg"], function() {
 
 d3.svg.diagonal.radial = function() {
   var diagonal = d3.svg.diagonal(),
@@ -10400,6 +10872,8 @@ function d3_svg_diagonalRadialProjection(projection) {
   };
 }
 
+});
+define('svg/symbol',["../arrays/map","../core/functor","../math/trigonometry","./svg"], function() {
 
 d3.svg.symbol = function() {
   var type = d3_svg_symbolType,
@@ -10502,6 +10976,8 @@ d3.svg.symbolTypes = d3_svg_symbols.keys();
 var d3_svg_symbolSqrt3 = Math.sqrt(3),
     d3_svg_symbolTan30 = Math.tan(30 * d3_radians);
 
+});
+define('transition/select',["../selection/select","./transition"], function() {
 
 d3_transitionPrototype.select = function(selector) {
   var id = this.id,
@@ -10528,6 +11004,8 @@ d3_transitionPrototype.select = function(selector) {
   return d3_transition(subgroups, id);
 };
 
+});
+define('transition/selectAll',["../selection/select","./transition"], function() {
 
 d3_transitionPrototype.selectAll = function(selector) {
   var id = this.id,
@@ -10557,6 +11035,8 @@ d3_transitionPrototype.selectAll = function(selector) {
   return d3_transition(subgroups, id);
 };
 
+});
+define('transition/filter',["../selection/filter","./transition"], function() {
 
 d3_transitionPrototype.filter = function(filter) {
   var subgroups = [],
@@ -10578,6 +11058,8 @@ d3_transitionPrototype.filter = function(filter) {
   return d3_transition(subgroups, this.id, this.time).ease(this.ease());
 };
 
+});
+define('transition/tween',["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.tween = function(name, tween) {
   var id = this.id;
@@ -10594,6 +11076,8 @@ function d3_transition_tween(groups, name, value, tween) {
       : (value = tween(value), function(node) { node.__transition__[id].tween.set(name, value); }));
 }
 
+});
+define('transition/attr',["../core/ns","../interpolate/interpolate","./transition","./tween"], function() {
 
 d3_transitionPrototype.attr = function(nameNS, value) {
   if (arguments.length < 2) {
@@ -10648,6 +11132,8 @@ d3_transitionPrototype.attrTween = function(nameNS, tween) {
   return this.tween("attr." + nameNS, name.local ? attrTweenNS : attrTween);
 };
 
+});
+define('transition/style',["../core/document","../interpolate/interpolate","./transition","./tween"], function() {
 
 d3_transitionPrototype.style = function(name, value, priority) {
   var n = arguments.length;
@@ -10700,6 +11186,8 @@ d3_transitionPrototype.styleTween = function(name, tween, priority) {
   return this.tween("style." + name, styleTween);
 };
 
+});
+define('transition/text',["./transition","./tween"], function() {
 
 d3_transitionPrototype.text = function(value) {
   return d3_transition_tween(this, "text", value, d3_transition_text);
@@ -10710,6 +11198,8 @@ function d3_transition_text(b) {
   return function() { this.textContent = b; };
 }
 
+});
+define('transition/remove',["./transition"], function() {
 
 d3_transitionPrototype.remove = function() {
   return this.each("end.transition", function() {
@@ -10718,6 +11208,8 @@ d3_transitionPrototype.remove = function() {
   });
 };
 
+});
+define('transition/ease',["../interpolate/ease","../selection/each","./transition"], function() {
 
 d3_transitionPrototype.ease = function(value) {
   var id = this.id;
@@ -10726,6 +11218,8 @@ d3_transitionPrototype.ease = function(value) {
   return d3_selection_each(this, function(node) { node.__transition__[id].ease = value; });
 };
 
+});
+define('transition/delay',["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.delay = function(value) {
   var id = this.id;
@@ -10734,6 +11228,8 @@ d3_transitionPrototype.delay = function(value) {
       : (value |= 0, function(node) { node.__transition__[id].delay = value; }));
 };
 
+});
+define('transition/duration',["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.duration = function(value) {
   var id = this.id;
@@ -10742,6 +11238,8 @@ d3_transitionPrototype.duration = function(value) {
       : (value = Math.max(1, value | 0), function(node) { node.__transition__[id].duration = value; }));
 };
 
+});
+define('transition/each',["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.each = function(type, listener) {
   var id = this.id;
@@ -10763,6 +11261,8 @@ d3_transitionPrototype.each = function(type, listener) {
   return this;
 };
 
+});
+define('transition/subtransition',["./transition"], function() {
 
 d3_transitionPrototype.transition = function() {
   var id0 = this.id,
@@ -10788,6 +11288,8 @@ d3_transitionPrototype.transition = function() {
   return d3_transition(subgroups, id1);
 };
 
+});
+define('transition/transition',["base","../arrays/map","../core/array","../event/dispatch","../event/timer","../interpolate/ease","../selection/selection","./select","./selectAll","./filter","./attr","./style","./text","./remove","./ease","./delay","./duration","./each","./subtransition","./tween"], function(d3) {
 
 function d3_transition(groups, id) {
   d3_arraySubclass(groups, d3_transitionPrototype);
@@ -10890,6 +11392,9 @@ function d3_transitionNode(node, i, id, inherit) {
   }
 }
 
+return d3.transition;
+});
+define('svg/axis',["../scale/linear","../scale/scale","../selection/selection","../transition/transition","./svg"], function() {
 
 d3.svg.axis = function() {
   var scale = d3.scale.linear(),
@@ -11108,6 +11613,8 @@ function d3_svg_axisSubdivide(scale, ticks, m) {
   return subticks;
 }
 
+});
+define('svg/brush',["../core/document","../core/rebind","../event/dispatch","../event/drag","../event/event","../event/mouse","../event/touches","../scale/scale","../selection/selection","./svg"], function() {
 
 d3.svg.brush = function() {
   var event = d3_eventDispatch(brush, "brushstart", "brush", "brushend"),
@@ -11478,7 +11985,11 @@ var d3_svg_brushResizes = [
   []
 ];
 
+});
+define('svg/index',["./svg","./arc","./line","./line-radial","./area","./area-radial","./chord","./diagonal","./diagonal-radial","./symbol","./axis","./brush"], function() {
 
+});
+define('time/time',["base"], function(d3) {
 d3.time = {};
 
 var d3_time = Date,
@@ -11515,6 +12026,9 @@ d3_time_utc.prototype = {
 
 var d3_time_prototype = Date.prototype;
 
+return d3.time;
+});
+define('time/format-localized',[],function() {
 // The date and time format (%c), date format (%x) and time format (%X).
 var d3_time_formatDateTime = "%a %b %e %X %Y",
     d3_time_formatDate = "%m/%d/%Y",
@@ -11527,6 +12041,8 @@ var d3_time_days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
     d3_time_monthAbbreviations = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 
+});
+define('time/interval',["./time"], function() {
 
 function d3_time_interval(local, step, number) {
 
@@ -11598,6 +12114,8 @@ function d3_time_interval_utc(method) {
   };
 }
 
+});
+define('time/year',["./day","./interval","./time"], function() {
 
 d3.time.year = d3_time_interval(function(date) {
   date = d3.time.day(date);
@@ -11612,6 +12130,8 @@ d3.time.year = d3_time_interval(function(date) {
 d3.time.years = d3.time.year.range;
 d3.time.years.utc = d3.time.year.utc.range;
 
+});
+define('time/day',["./interval","./time","./year"], function() {
 
 d3.time.day = d3_time_interval(function(date) {
   var day = new d3_time(2000, 0);
@@ -11631,6 +12151,8 @@ d3.time.dayOfYear = function(date) {
   return Math.floor((date - year - (date.getTimezoneOffset() - year.getTimezoneOffset()) * 6e4) / 864e5);
 };
 
+});
+define('time/week',["./day","./interval","./time","./year"], function() {
 
 d3_time_daySymbols.forEach(function(day, i) {
   day = day.toLowerCase();
@@ -11660,6 +12182,8 @@ d3.time.weeks = d3.time.sunday.range;
 d3.time.weeks.utc = d3.time.sunday.utc.range;
 d3.time.weekOfYear = d3.time.sundayOfYear;
 
+});
+define('time/format',["../arrays/map","../format/requote","./day","./format-localized","./time","./week"], function() {
 
 d3.time.format = function(template) {
   var n = template.length;
@@ -11958,6 +12482,8 @@ function d3_time_parseLiteralPercent(date, string, i) {
   return n ? i + n[0].length : -1;
 }
 
+});
+define('time/format-utc',["./format","./time"], function() {
 
 d3.time.format.utc = function(template) {
   var local = d3.time.format(template);
@@ -11988,6 +12514,8 @@ d3.time.format.utc = function(template) {
   return format;
 };
 
+});
+define('time/format-iso',["./format","./format-utc","./time"], function() {
 
 var d3_time_formatIso = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ");
 
@@ -12006,6 +12534,8 @@ d3_time_formatIsoNative.parse = function(string) {
 
 d3_time_formatIsoNative.toString = d3_time_formatIso.toString;
 
+});
+define('time/second',["./interval","./time"], function() {
 
 d3.time.second = d3_time_interval(function(date) {
   return new d3_time(Math.floor(date / 1e3) * 1e3);
@@ -12018,6 +12548,8 @@ d3.time.second = d3_time_interval(function(date) {
 d3.time.seconds = d3.time.second.range;
 d3.time.seconds.utc = d3.time.second.utc.range;
 
+});
+define('time/minute',["./interval","./time"], function() {
 
 d3.time.minute = d3_time_interval(function(date) {
   return new d3_time(Math.floor(date / 6e4) * 6e4);
@@ -12030,6 +12562,8 @@ d3.time.minute = d3_time_interval(function(date) {
 d3.time.minutes = d3.time.minute.range;
 d3.time.minutes.utc = d3.time.minute.utc.range;
 
+});
+define('time/hour',["./interval","./time"], function() {
 
 d3.time.hour = d3_time_interval(function(date) {
   var timezone = date.getTimezoneOffset() / 60;
@@ -12043,6 +12577,8 @@ d3.time.hour = d3_time_interval(function(date) {
 d3.time.hours = d3.time.hour.range;
 d3.time.hours.utc = d3.time.hour.utc.range;
 
+});
+define('time/month',["./day","./interval","./time"], function() {
 
 d3.time.month = d3_time_interval(function(date) {
   date = d3.time.day(date);
@@ -12057,6 +12593,8 @@ d3.time.month = d3_time_interval(function(date) {
 d3.time.months = d3.time.month.range;
 d3.time.months.utc = d3.time.month.utc.range;
 
+});
+define('time/scale',["../arrays/bisect","../core/rebind","../core/true","../scale/linear","../scale/nice","./day","./format","./hour","./minute","./month","./second","./time","./week","./year"], function() {
 
 function d3_time_scale(linear, methods, format) {
 
@@ -12194,6 +12732,8 @@ d3.time.scale = function() {
   return d3_time_scale(d3.scale.linear(), d3_time_scaleLocalMethods, d3_time_scaleLocalFormat);
 };
 
+});
+define('time/scale-utc',["../core/true","../scale/linear","./format","./format-utc","./scale"], function() {
 
 var d3_time_scaleUTCMethods = d3_time_scaleLocalMethods.map(function(m) {
   return [m[0].utc, m[1]];
@@ -12233,13 +12773,22 @@ d3.time.scale.utc = function() {
   return d3_time_scale(d3.scale.linear(), d3_time_scaleUTCMethods, d3_time_scaleUTCFormat);
 };
 
+});
+define('time/index',["./time","./format-localized","./format","./format-utc","./format-iso","./interval","./second","./minute","./hour","./day","./week","./month","./year","./scale","./scale-utc"], function() {
 
+});
+define('transition/index',["./transition"], function() {
 
+});
+define('xhr/text',["base","./xhr"], function(d3) {
 
 d3.text = d3_xhrType(function(request) {
   return request.responseText;
 });
 
+return d3.text;
+});
+define('xhr/json',["base","./xhr"], function(d3) {
 
 d3.json = function(url, callback) {
   return d3_xhr(url, "application/json", d3_json, callback);
@@ -12249,6 +12798,9 @@ function d3_json(request) {
   return JSON.parse(request.responseText);
 }
 
+return d3.json;
+});
+define('xhr/html',["base","../core/document","./xhr"], function(d3) {
 
 d3.html = function(url, callback) {
   return d3_xhr(url, "text/html", d3_html, callback);
@@ -12260,13 +12812,22 @@ function d3_html(request) {
   return range.createContextualFragment(request.responseText);
 }
 
+return d3.html;
+});
+define('xhr/xml',["base","./xhr"], function(d3) {
 
 d3.xml = d3_xhrType(function(request) {
   return request.responseXML;
 });
 
+return d3.xml;
+});
+define('xhr/index',["./xhr","./text","./json","./html","./xml"], function() {
+
+});
+define('d3',["./base","./compat/index","./arrays/index","./behavior/index","./color/index","./core/index","./dsv/index","./event/index","./format/index","./geo/index","./geom/index","./interpolate/index","./layout/index","./math/index","./scale/index","./selection/index","./svg/index","./time/index","./transition/index","./xhr/index"], function(d3) {
 
 
 
-
-})();
+return d3;
+});
