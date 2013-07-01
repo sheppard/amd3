@@ -1,7 +1,6 @@
-import "../format/format";
-import "linear";
-import "nice";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["../format/format","./linear","./nice","./scale"], function() {
+//>>excludeEnd("amd")
 
 d3.scale.log = function() {
   return d3_scale_log(d3.scale.linear().domain([0, Math.LN10]), 10, d3_scale_logp, d3_scale_powp, [1, 10]);
@@ -109,3 +108,7 @@ function d3_scale_logn(x) {
 function d3_scale_pown(x) {
   return -Math.exp(-x);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

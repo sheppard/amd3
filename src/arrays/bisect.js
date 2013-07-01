@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 d3.bisector = function(f) {
   return {
     left: function(a, x, lo, hi) {
@@ -26,3 +29,8 @@ d3.bisector = function(f) {
 var d3_bisector = d3.bisector(function(d) { return d; });
 d3.bisectLeft = d3_bisector.left;
 d3.bisect = d3.bisectRight = d3_bisector.right;
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.bisect;
+});
+//>>excludeEnd("amd")

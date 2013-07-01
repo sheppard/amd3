@@ -1,5 +1,6 @@
-import "../core/document";
-import "../core/vendor";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/document","../core/vendor"], function(d3) {
+//>>excludeEnd("amd")
 
 var d3_timer_queueHead,
     d3_timer_queueTail,
@@ -80,3 +81,8 @@ function d3_timer_sweep() {
 
 var d3_timer_frame = d3_window[d3_vendorSymbol(d3_window, "requestAnimationFrame")]
     || function(callback) { setTimeout(callback, 17); };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.timer;
+});
+//>>excludeEnd("amd")

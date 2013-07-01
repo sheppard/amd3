@@ -1,5 +1,6 @@
-import "../selection/each";
-import "transition";
+//>>excludeStart("amd", pragmas.amd)
+define(["../selection/each","./transition"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.delay = function(value) {
   var id = this.id;
@@ -7,3 +8,7 @@ d3_transitionPrototype.delay = function(value) {
       ? function(node, i, j) { node.__transition__[id].delay = value.call(node, node.__data__, i, j) | 0; }
       : (value |= 0, function(node) { node.__transition__[id].delay = value; }));
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

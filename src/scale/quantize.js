@@ -1,4 +1,6 @@
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["./scale"], function() {
+//>>excludeEnd("amd")
 
 d3.scale.quantize = function() {
   return d3_scale_quantize(0, 1, [0, 1]);
@@ -42,3 +44,7 @@ function d3_scale_quantize(x0, x1, range) {
 
   return rescale();
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

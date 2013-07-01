@@ -1,6 +1,6 @@
-import "area";
-import "svg";
-import "line-radial";
+//>>excludeStart("amd", pragmas.amd)
+define(["./area","./svg","./line-radial"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.area.radial = function() {
   var area = d3_svg_area(d3_svg_lineRadial);
@@ -12,3 +12,7 @@ d3.svg.area.radial = function() {
   area.endAngle = area.y1, delete area.y1;
   return area;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

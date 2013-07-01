@@ -1,4 +1,6 @@
-import "interpolate";
+//>>excludeStart("amd", pragmas.amd)
+define(["./interpolate"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateArray = d3_interpolateArray;
 
@@ -17,3 +19,7 @@ function d3_interpolateArray(a, b) {
     return c;
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

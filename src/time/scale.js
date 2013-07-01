@@ -1,17 +1,6 @@
-import "../arrays/bisect";
-import "../core/rebind";
-import "../core/true";
-import "../scale/linear";
-import "../scale/nice";
-import "day";
-import "format";
-import "hour";
-import "minute";
-import "month";
-import "second";
-import "time";
-import "week";
-import "year";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/bisect","../core/rebind","../core/true","../scale/linear","../scale/nice","./day","./format","./hour","./minute","./month","./second","./time","./week","./year"], function() {
+//>>excludeEnd("amd")
 
 function d3_time_scale(linear, methods, format) {
 
@@ -148,3 +137,7 @@ d3_time_scaleLocalMethods.year = function(extent, m) {
 d3.time.scale = function() {
   return d3_time_scale(d3.scale.linear(), d3_time_scaleLocalMethods, d3_time_scaleLocalFormat);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

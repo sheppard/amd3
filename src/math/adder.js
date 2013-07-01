@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 // Adds floating point numbers with twice the normal precision.
 // Reference: J. R. Shewchuk, Adaptive Precision Floating-Point Arithmetic and
 // Fast Robust Geometric Predicates, Discrete & Computational Geometry 18(3)
@@ -32,3 +35,8 @@ function d3_adderSum(a, b, o) {
       bv = x - a, av = x - bv; // b_virtual & a_virtual
   o.t = (a - av) + (b - bv); // a_roundoff + b_roundoff
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3_adder;
+});
+//>>excludeEnd("amd")

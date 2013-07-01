@@ -1,5 +1,6 @@
-import "geom";
-import "voronoi";
+//>>excludeStart("amd", pragmas.amd)
+define(["./geom","./voronoi"], function() {
+//>>excludeEnd("amd")
 
 // @deprecated; use d3.geom.voronoi links instead.
 d3.geom.delaunay = function(vertices) {
@@ -29,3 +30,7 @@ d3.geom.delaunay = function(vertices) {
 
   return triangles;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 d3.sum = function(array, f) {
   var s = 0,
       n = array.length,
@@ -12,3 +15,8 @@ d3.sum = function(array, f) {
 
   return s;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.sum;
+});
+//>>excludeEnd("amd")

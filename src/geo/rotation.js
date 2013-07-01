@@ -1,6 +1,6 @@
-import "../math/trigonometry";
-import "equirectangular";
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./equirectangular","./geo"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.rotation = function(rotate) {
   rotate = d3_geo_rotation(rotate[0] % 360 * d3_radians, rotate[1] * d3_radians, rotate.length > 2 ? rotate[2] * d3_radians : 0);
@@ -70,3 +70,7 @@ function d3_geo_rotationφγ(δφ, δγ) {
 
   return rotation;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

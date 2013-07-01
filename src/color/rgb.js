@@ -1,8 +1,6 @@
-import "../arrays/map";
-import "color";
-import "hsl";
-import "lab";
-import "xyz";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/map","./color","./hsl","./lab","./xyz"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.rgb = function(r, g, b) {
   return arguments.length === 1
@@ -305,3 +303,8 @@ var d3_rgb_names = d3.map({
 d3_rgb_names.forEach(function(key, value) {
   d3_rgb_names.set(key, d3_rgb_parse(value, d3_rgb, d3_hsl_rgb));
 });
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.rgb;
+});
+//>>excludeEnd("amd")

@@ -1,3 +1,7 @@
-import "dsv";
-import "csv";
-import "tsv";
+//>>excludeStart("amd", pragmas.amd)
+define(["./dsv","./csv","./tsv"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

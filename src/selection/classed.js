@@ -1,6 +1,6 @@
-import "../format/collapse";
-import "../format/requote";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../format/collapse","../format/requote","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.classed = function(name, value) {
   if (arguments.length < 2) {
@@ -70,3 +70,7 @@ function d3_selection_classedName(name) {
     }
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

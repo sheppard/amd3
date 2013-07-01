@@ -1,4 +1,6 @@
-import "../core/class";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/class"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.map = function(object) {
   var map = new d3_Map;
@@ -48,3 +50,8 @@ d3_class(d3_Map, {
 
 var d3_map_prefix = "\0", // prevent collision with built-ins
     d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.map;
+});
+//>>excludeEnd("amd")

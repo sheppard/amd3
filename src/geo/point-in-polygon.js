@@ -1,7 +1,6 @@
-import "geo";
-import "area";
-import "cartesian";
-import "../math/trigonometry";
+//>>excludeStart("amd", pragmas.amd)
+define(["./geo","./area","./cartesian","../math/trigonometry"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_pointInPolygon(point, polygon) {
   var meridian = point[0],
@@ -69,3 +68,7 @@ function d3_geo_pointInPolygon(point, polygon) {
 
   return (!southPole && !polar && d3_geo_areaRingSum < 0 || polarAngle < -ε) ^ (winding & 1);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "../arrays/set";
-import "../xhr/xhr";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/set","../xhr/xhr"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.dsv = function(delimiter, mimeType) {
   var reFormat = new RegExp("[\"" + delimiter + "\n]"),
@@ -134,3 +135,8 @@ d3.dsv = function(delimiter, mimeType) {
 
   return dsv;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.dsv;
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "../core/document";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.style = function(name, value, priority) {
   var n = arguments.length;
@@ -54,3 +55,7 @@ function d3_selection_style(name, value, priority) {
       ? styleNull : (typeof value === "function"
       ? styleFunction : styleConstant);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

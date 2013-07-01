@@ -1,6 +1,6 @@
-import "../core/document";
-import "../core/ns";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../core/ns","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.insert = function(name, before) {
   name = d3.ns.qualify(name);
@@ -21,3 +21,7 @@ d3_selectionPrototype.insert = function(name, before) {
 
   return this.select(name.local ? insertNS : insert);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

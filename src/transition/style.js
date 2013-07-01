@@ -1,7 +1,6 @@
-import "../core/document";
-import "../interpolate/interpolate";
-import "transition";
-import "tween";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../interpolate/interpolate","./transition","./tween"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.style = function(name, value, priority) {
   var n = arguments.length;
@@ -53,3 +52,7 @@ d3_transitionPrototype.styleTween = function(name, tween, priority) {
 
   return this.tween("style." + name, styleTween);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

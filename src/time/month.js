@@ -1,6 +1,6 @@
-import "day";
-import "interval";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./day","./interval","./time"], function() {
+//>>excludeEnd("amd")
 
 d3.time.month = d3_time_interval(function(date) {
   date = d3.time.day(date);
@@ -14,3 +14,7 @@ d3.time.month = d3_time_interval(function(date) {
 
 d3.time.months = d3.time.month.range;
 d3.time.months.utc = d3.time.month.utc.range;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

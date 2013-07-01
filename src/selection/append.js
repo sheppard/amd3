@@ -1,6 +1,6 @@
-import "../core/document";
-import "../core/ns";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../core/ns","./selection"], function() {
+//>>excludeEnd("amd")
 
 // TODO append(node)?
 // TODO append(function)?
@@ -17,3 +17,7 @@ d3_selectionPrototype.append = function(name) {
 
   return this.select(name.local ? appendNS : append);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

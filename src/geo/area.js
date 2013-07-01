@@ -1,8 +1,6 @@
-import "../core/noop";
-import "../math/adder";
-import "../math/trigonometry";
-import "geo";
-import "stream";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/noop","../math/adder","../math/trigonometry","./geo","./stream"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.area = function(object) {
   d3_geo_areaSum = 0;
@@ -65,3 +63,7 @@ function d3_geo_areaRingStart() {
     nextPoint(λ00, φ00);
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

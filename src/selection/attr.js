@@ -1,5 +1,6 @@
-import "../core/ns";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/ns","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.attr = function(name, value) {
   if (arguments.length < 2) {
@@ -60,3 +61,7 @@ function d3_selection_attr(name, value) {
       ? (name.local ? attrFunctionNS : attrFunction)
       : (name.local ? attrConstantNS : attrConstant));
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

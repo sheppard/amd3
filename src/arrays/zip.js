@@ -1,4 +1,6 @@
-import "min";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","./min"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.zip = function() {
   if (!(n = arguments.length)) return [];
@@ -13,3 +15,8 @@ d3.zip = function() {
 function d3_zipLength(d) {
   return d.length;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.zip;
+});
+//>>excludeEnd("amd")

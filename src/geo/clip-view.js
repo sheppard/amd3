@@ -1,7 +1,6 @@
-import "../arrays/merge";
-import "../math/trigonometry";
-import "clip";
-import "clip-polygon";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/merge","../math/trigonometry","./clip","./clip-polygon"], function() {
+//>>excludeEnd("amd")
 
 var d3_geo_clipViewMAX = 1e9;
 
@@ -210,3 +209,7 @@ function d3_geo_clipViewT(num, denominator, t) {
   }
   return true;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,6 +1,6 @@
-import "../arrays/range";
-import "../math/trigonometry";
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/range","../math/trigonometry","./geo"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.graticule = function() {
   var x1, x0, X1, X0,
@@ -100,3 +100,7 @@ function d3_geo_graticuleY(x0, x1, dx) {
   var x = d3.range(x0, x1 - ε, dx).concat(x1);
   return function(y) { return x.map(function(x) { return [x, y]; }); };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

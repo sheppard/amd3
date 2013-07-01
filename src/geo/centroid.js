@@ -1,7 +1,6 @@
-import "../core/noop";
-import "../math/trigonometry";
-import "geo";
-import "stream";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/noop","../math/trigonometry","./geo","./stream"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.centroid = function(object) {
   d3_geo_centroidW0 = d3_geo_centroidW1 =
@@ -147,3 +146,7 @@ function d3_geo_centroidRingStart() {
     d3_geo_centroidPointXYZ(x0, y0, z0);
   }
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

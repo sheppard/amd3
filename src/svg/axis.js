@@ -1,8 +1,6 @@
-import "../scale/linear";
-import "../scale/scale";
-import "../selection/selection";
-import "../transition/transition";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["../scale/linear","../scale/scale","../selection/selection","../transition/transition","./svg"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.axis = function() {
   var scale = d3.scale.linear(),
@@ -220,3 +218,7 @@ function d3_svg_axisSubdivide(scale, ticks, m) {
   }
   return subticks;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

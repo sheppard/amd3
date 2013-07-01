@@ -1,7 +1,6 @@
-import "../core/source";
-import "../core/target";
-import "geo";
-import "distance";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/source","../core/target","./geo","./distance"], function() {
+//>>excludeEnd("amd")
 
 // @deprecated use {type: "LineString"} or d3.geo.distance instead.
 d3.geo.greatArc = function() {
@@ -40,3 +39,7 @@ d3.geo.greatArc = function() {
 
   return greatArc;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 var d3_nsPrefix = {
   svg: "http://www.w3.org/2000/svg",
   xhtml: "http://www.w3.org/1999/xhtml",
@@ -20,3 +23,8 @@ d3.ns = {
         : name;
   }
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.ns;
+});
+//>>excludeEnd("amd")

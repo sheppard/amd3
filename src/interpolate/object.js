@@ -1,4 +1,6 @@
-import "interpolate";
+//>>excludeStart("amd", pragmas.amd)
+define(["./interpolate"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateObject = d3_interpolateObject;
 
@@ -23,3 +25,7 @@ function d3_interpolateObject(a, b) {
     return c;
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

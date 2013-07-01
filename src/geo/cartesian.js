@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 // TODO
 // cross and scale return new vectors,
 // whereas add and normalize operate in-place
@@ -45,3 +48,7 @@ function d3_geo_cartesianNormalize(d) {
   d[1] /= l;
   d[2] /= l;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

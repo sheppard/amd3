@@ -1,4 +1,6 @@
-import "../arrays/bisect";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/bisect"], function() {
+//>>excludeEnd("amd")
 
 function d3_scale_polylinear(domain, range, uninterpolate, interpolate) {
   var u = [],
@@ -22,3 +24,7 @@ function d3_scale_polylinear(domain, range, uninterpolate, interpolate) {
     return i[j](u[j](x));
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

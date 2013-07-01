@@ -1,22 +1,7 @@
-import "ascending";
-import "descending";
-import "min";
-import "max";
-import "extent";
-import "sum";
-import "mean";
-import "median";
-import "quantile";
-import "bisect";
-import "shuffle";
-import "permute";
-import "zip";
-import "transpose";
-import "keys";
-import "values";
-import "entries";
-import "merge";
-import "range";
-import "nest";
-import "map";
-import "set";
+//>>excludeStart("amd", pragmas.amd)
+define(["./ascending","./descending","./min","./max","./extent","./sum","./mean","./median","./quantile","./bisect","./shuffle","./permute","./zip","./transpose","./keys","./values","./entries","./merge","./range","./nest","./map","./set"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

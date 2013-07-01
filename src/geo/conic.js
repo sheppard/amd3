@@ -1,5 +1,6 @@
-import "../math/trigonometry";
-import "projection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./projection"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_conic(projectAt) {
   var φ0 = 0,
@@ -14,3 +15,7 @@ function d3_geo_conic(projectAt) {
 
   return p;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

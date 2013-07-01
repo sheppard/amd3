@@ -1,5 +1,6 @@
-import "../core/noop";
-import "../math/trigonometry";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/noop","../math/trigonometry"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_pathContext(context) {
   var pointRadius = 4.5;
@@ -47,3 +48,7 @@ function d3_geo_pathContext(context) {
 
   return stream;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

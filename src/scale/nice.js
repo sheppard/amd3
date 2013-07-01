@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 function d3_scale_nice(domain, nice) {
   var i0 = 0,
       i1 = domain.length - 1,
@@ -26,3 +29,7 @@ var d3_scale_niceIdentity = {
   floor: d3_identity,
   ceil: d3_identity
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

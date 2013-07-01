@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 d3.random = {
   normal: function(µ, σ) {
     var n = arguments.length;
@@ -26,3 +29,8 @@ d3.random = {
     };
   }
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.random;
+});
+//>>excludeEnd("amd")

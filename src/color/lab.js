@@ -1,7 +1,6 @@
-import "../math/trigonometry";
-import "color";
-import "hcl";
-import "rgb";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../math/trigonometry","./color","./hcl","./rgb"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.lab = function(l, a, b) {
   return arguments.length === 1
@@ -66,3 +65,8 @@ function d3_lab_hcl(l, a, b) {
 function d3_lab_xyz(x) {
   return x > 0.206893034 ? x * x * x : (x - 4 / 29) / 7.787037;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.lab;
+});
+//>>excludeEnd("amd")

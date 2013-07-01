@@ -1,7 +1,6 @@
-import "../arrays/merge";
-import "../core/noop";
-import "../math/trigonometry";
-import "clip-polygon";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/merge","../core/noop","../math/trigonometry","./clip-polygon"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_clip(pointVisible, clipLine, interpolate, polygonContains) {
   return function(listener) {
@@ -133,3 +132,7 @@ function d3_geo_clipSort(a, b) {
   return ((a = a.point)[0] < 0 ? a[1] - π / 2 - ε : π / 2 - a[1])
        - ((b = b.point)[0] < 0 ? b[1] - π / 2 - ε : π / 2 - b[1]);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "../core/array";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/array","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.selectAll = function(selector) {
   var subgroups = [],
@@ -25,3 +26,7 @@ function d3_selection_selectorAll(selector) {
     return d3_selectAll(selector, this);
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

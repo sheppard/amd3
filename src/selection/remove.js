@@ -1,4 +1,6 @@
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection"], function() {
+//>>excludeEnd("amd")
 
 // TODO remove(selector)?
 // TODO remove(node)?
@@ -9,3 +11,7 @@ d3_selectionPrototype.remove = function() {
     if (parent) parent.removeChild(this);
   });
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

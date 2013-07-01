@@ -1,5 +1,6 @@
-import "../selection/select";
-import "transition";
+//>>excludeStart("amd", pragmas.amd)
+define(["../selection/select","./transition"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.selectAll = function(selector) {
   var id = this.id,
@@ -28,3 +29,7 @@ d3_transitionPrototype.selectAll = function(selector) {
 
   return d3_transition(subgroups, id);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

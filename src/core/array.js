@@ -1,4 +1,6 @@
-import "document";
+//>>excludeStart("amd", pragmas.amd)
+define(["./document"], function() {
+//>>excludeEnd("amd")
 
 var d3_array = d3_arraySlice; // conversion for NodeLists
 
@@ -29,3 +31,7 @@ function(array, prototype) {
 function(array, prototype) {
   for (var property in prototype) array[property] = prototype[property];
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

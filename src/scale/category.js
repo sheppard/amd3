@@ -1,5 +1,6 @@
-import "ordinal";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["./ordinal","./scale"], function() {
+//>>excludeEnd("amd")
 
 /*
  * This product includes color specifications and designs developed by Cynthia
@@ -55,3 +56,7 @@ var d3_category20c = [
   "#756bb1", "#9e9ac8", "#bcbddc", "#dadaeb",
   "#636363", "#969696", "#bdbdbd", "#d9d9d9"
 ];
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

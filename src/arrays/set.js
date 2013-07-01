@@ -1,5 +1,6 @@
-import "../core/class";
-import "map";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/class","./map"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.set = function(array) {
   var set = new d3_Set();
@@ -36,3 +37,8 @@ d3_class(d3_Set, {
     }
   }
 });
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.set;
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "../math/transform";
-import "number";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/transform","./number"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateTransform = d3_interpolateTransform;
 
@@ -54,3 +55,7 @@ function d3_interpolateTransform(a, b) {
     return s.join("");
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

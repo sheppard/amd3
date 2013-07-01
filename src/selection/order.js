@@ -1,4 +1,6 @@
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.order = function() {
   for (var j = -1, m = this.length; ++j < m;) {
@@ -11,3 +13,7 @@ d3_selectionPrototype.order = function() {
   }
   return this;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

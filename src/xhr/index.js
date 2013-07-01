@@ -1,5 +1,7 @@
-import "xhr";
-import "text";
-import "json";
-import "html";
-import "xml";
+//>>excludeStart("amd", pragmas.amd)
+define(["./xhr","./text","./json","./html","./xml"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

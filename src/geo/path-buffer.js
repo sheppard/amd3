@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 function d3_geo_pathBuffer() {
   var pointCircle = d3_geo_pathBufferCircle(4.5),
       buffer = [];
@@ -57,3 +60,7 @@ function d3_geo_pathBufferCircle(radius) {
       + "a" + radius + "," + radius + " 0 1,1 0," + 2 * radius
       + "z";
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

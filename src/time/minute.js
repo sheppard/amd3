@@ -1,5 +1,6 @@
-import "interval";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./interval","./time"], function() {
+//>>excludeEnd("amd")
 
 d3.time.minute = d3_time_interval(function(date) {
   return new d3_time(Math.floor(date / 6e4) * 6e4);
@@ -11,3 +12,7 @@ d3.time.minute = d3_time_interval(function(date) {
 
 d3.time.minutes = d3.time.minute.range;
 d3.time.minutes.utc = d3.time.minute.utc.range;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

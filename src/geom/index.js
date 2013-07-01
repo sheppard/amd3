@@ -1,6 +1,7 @@
-import "geom";
-import "hull";
-import "polygon";
-import "voronoi";
-import "delaunay";
-import "quadtree";
+//>>excludeStart("amd", pragmas.amd)
+define(["./geom","./hull","./polygon","./voronoi","./delaunay","./quadtree"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

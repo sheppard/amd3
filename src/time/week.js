@@ -1,7 +1,6 @@
-import "day";
-import "interval";
-import "time";
-import "year";
+//>>excludeStart("amd", pragmas.amd)
+define(["./day","./interval","./time","./year"], function() {
+//>>excludeEnd("amd")
 
 d3_time_daySymbols.forEach(function(day, i) {
   day = day.toLowerCase();
@@ -30,3 +29,7 @@ d3.time.week = d3.time.sunday;
 d3.time.weeks = d3.time.sunday.range;
 d3.time.weeks.utc = d3.time.sunday.utc.range;
 d3.time.weekOfYear = d3.time.sundayOfYear;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

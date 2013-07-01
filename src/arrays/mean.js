@@ -1,4 +1,6 @@
-import "../math/number";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../math/number"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.mean = function(array, f) {
   var n = array.length,
@@ -13,3 +15,8 @@ d3.mean = function(array, f) {
   }
   return j ? m : undefined;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.mean;
+});
+//>>excludeEnd("amd")

@@ -1,10 +1,6 @@
-import "../arrays/map";
-import "../core/array";
-import "../core/document";
-import "../core/noop";
-import "../event/event";
-import "../format/requote";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/map","../core/array","../core/document","../core/noop","../event/event","../format/requote","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.on = function(type, listener, capture) {
   var n = arguments.length;
@@ -102,3 +98,7 @@ function d3_selection_onFilter(listener, argumentz) {
     }
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

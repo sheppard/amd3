@@ -1,9 +1,6 @@
-import "../arrays/map";
-import "../core/array";
-import "../event/dispatch";
-import "../event/timer";
-import "../interpolate/ease";
-import "../selection/selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/map","../core/array","../event/dispatch","../event/timer","../interpolate/ease","../selection/selection","./select","./selectAll","./filter","./attr","./style","./text","./remove","./ease","./delay","./duration","./each","./subtransition","./tween"], function(d3) {
+//>>excludeEnd("amd")
 
 function d3_transition(groups, id) {
   d3_arraySubclass(groups, d3_transitionPrototype);
@@ -31,19 +28,6 @@ d3.transition = function(selection) {
 
 d3.transition.prototype = d3_transitionPrototype;
 
-import "select";
-import "selectAll";
-import "filter";
-import "attr";
-import "style";
-import "text";
-import "remove";
-import "ease";
-import "delay";
-import "duration";
-import "each";
-import "subtransition";
-import "tween";
 
 function d3_transitionNode(node, i, id, inherit) {
   var lock = node.__transition__ || (node.__transition__ = {active: 0, count: 0}),
@@ -118,3 +102,8 @@ function d3_transitionNode(node, i, id, inherit) {
     return transition;
   }
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.transition;
+});
+//>>excludeEnd("amd")

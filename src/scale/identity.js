@@ -1,5 +1,6 @@
-import "linear";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["./linear","./scale"], function() {
+//>>excludeEnd("amd")
 
 d3.scale.identity = function() {
   return d3_scale_identity([0, 1]);
@@ -31,3 +32,7 @@ function d3_scale_identity(domain) {
 
   return identity;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

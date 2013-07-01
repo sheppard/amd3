@@ -1,4 +1,6 @@
-import "map";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","./map"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.nest = function() {
   var nest = {},
@@ -95,3 +97,8 @@ d3.nest = function() {
 
   return nest;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.nest;
+});
+//>>excludeEnd("amd")

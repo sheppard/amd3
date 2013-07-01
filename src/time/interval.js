@@ -1,4 +1,6 @@
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./time"], function() {
+//>>excludeEnd("amd")
 
 function d3_time_interval(local, step, number) {
 
@@ -69,3 +71,7 @@ function d3_time_interval_utc(method) {
     }
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 function d3_class(ctor, properties) {
   try {
     for (var key in properties) {
@@ -10,3 +13,8 @@ function d3_class(ctor, properties) {
     ctor.prototype = properties;
   }
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3_class;
+});
+//>>excludeEnd("amd")

@@ -1,8 +1,6 @@
-import "../core/array";
-import "../core/document";
-import "../core/identity";
-import "../core/rebind";
-import "../event/dispatch";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/array","../core/document","../core/identity","../core/rebind","../event/dispatch"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.xhr = d3_xhrType(d3_identity);
 
@@ -116,3 +114,8 @@ function d3_xhr_fixCallback(callback) {
       ? function(error, request) { callback(error == null ? request : null); }
       : callback;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.xhr;
+});
+//>>excludeEnd("amd")

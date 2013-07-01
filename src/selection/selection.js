@@ -1,6 +1,6 @@
-import "../core/array";
-import "../core/document";
-import "../core/vendor";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/array","../core/document","../core/vendor","./select","./selectAll","./attr","./classed","./style","./property","./text","./html","./append","./insert","./remove","./data","./datum","./filter","./order","./sort","./on","./each","./call","./empty","./node","./size","./enter","./transition"], function(d3) {
+//>>excludeEnd("amd")
 
 function d3_selection(groups) {
   d3_arraySubclass(groups, d3_selectionPrototype);
@@ -25,30 +25,6 @@ d3.selection = function() {
 
 var d3_selectionPrototype = d3.selection.prototype = [];
 
-import "select";
-import "selectAll";
-import "attr";
-import "classed";
-import "style";
-import "property";
-import "text";
-import "html";
-import "append";
-import "insert";
-import "remove";
-import "data";
-import "datum";
-import "filter";
-import "order";
-import "sort";
-import "on";
-import "each";
-import "call";
-import "empty";
-import "node";
-import "size";
-import "enter";
-import "transition";
 
 // TODO fast singleton implementation?
 d3.select = function(node) {
@@ -64,3 +40,8 @@ d3.selectAll = function(nodes) {
 };
 
 var d3_selectionRoot = d3.select(d3_documentElement);
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.selection;
+});
+//>>excludeEnd("amd")

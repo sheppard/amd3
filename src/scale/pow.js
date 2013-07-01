@@ -1,6 +1,6 @@
-import "linear";
-import "nice";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["./linear","./nice","./scale"], function() {
+//>>excludeEnd("amd")
 
 d3.scale.pow = function() {
   return d3_scale_pow(d3.scale.linear(), 1, [0, 1]);
@@ -56,3 +56,7 @@ function d3_scale_powPow(e) {
     return x < 0 ? -Math.pow(-x, e) : Math.pow(x, e);
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

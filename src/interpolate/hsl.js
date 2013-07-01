@@ -1,4 +1,6 @@
-import "../color/hsl";
+//>>excludeStart("amd", pragmas.amd)
+define(["../color/hsl"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateHsl = d3_interpolateHsl;
 
@@ -20,3 +22,7 @@ function d3_interpolateHsl(a, b) {
     return d3_hsl_rgb(ah + bh * t, as + bs * t, al + bl * t) + "";
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

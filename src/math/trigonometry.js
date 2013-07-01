@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 var π = Math.PI,
     ε = 1e-6,
     ε2 = ε * ε,
@@ -27,3 +30,7 @@ function d3_cosh(x) {
 function d3_haversin(x) {
   return (x = Math.sin(x / 2)) * x;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

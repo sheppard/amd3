@@ -1,4 +1,6 @@
-import "dispatch";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","./dispatch"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.event = null;
 
@@ -48,3 +50,8 @@ function d3_eventDispatch(target) {
 
   return dispatch;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.event;
+});
+//>>excludeEnd("amd")

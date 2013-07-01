@@ -1,8 +1,6 @@
-import "../arrays/map";
-import "../core/functor";
-import "../core/identity";
-import "../core/true";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/map","../core/functor","../core/identity","../core/true","./svg"], function() {
+//>>excludeEnd("amd")
 
 function d3_svg_line(projection) {
   var x = d3_svg_lineX,
@@ -441,3 +439,7 @@ function d3_svg_lineMonotone(points) {
       ? d3_svg_lineLinear(points)
       : points[0] + d3_svg_lineHermite(points, d3_svg_lineMonotoneTangents(points));
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

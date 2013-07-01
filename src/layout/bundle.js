@@ -1,4 +1,6 @@
-import "layout";
+//>>excludeStart("amd", pragmas.amd)
+define(["./layout"], function() {
+//>>excludeEnd("amd")
 
 // Implements hierarchical edge bundling using Holten's algorithm. For each
 // input link, a path is computed that travels through the tree, up the parent
@@ -57,3 +59,7 @@ function d3_layout_bundleLeastCommonAncestor(a, b) {
   }
   return sharedNode;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

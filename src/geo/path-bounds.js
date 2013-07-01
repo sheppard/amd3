@@ -1,4 +1,6 @@
-import "../core/noop";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/noop"], function() {
+//>>excludeEnd("amd")
 
 var d3_geo_pathBoundsX0,
     d3_geo_pathBoundsY0,
@@ -19,3 +21,7 @@ function d3_geo_pathBoundsPoint(x, y) {
   if (y < d3_geo_pathBoundsY0) d3_geo_pathBoundsY0 = y;
   if (y > d3_geo_pathBoundsY1) d3_geo_pathBoundsY1 = y;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

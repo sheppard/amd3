@@ -1,18 +1,6 @@
-import "../core/identity";
-import "../math/trigonometry";
-import "albers-usa";
-import "area";
-import "bounds";
-import "centroid";
-import "geo";
-import "path-area";
-import "path-bounds";
-import "path-buffer";
-import "path-centroid";
-import "path-context";
-import "projection";
-import "resample";
-import "stream";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/identity","../math/trigonometry","./albers-usa","./area","./bounds","./centroid","./geo","./path-area","./path-bounds","./path-buffer","./path-centroid","./path-context","./projection","./resample","./stream"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.path = function() {
   var pointRadius = 4.5,
@@ -95,3 +83,7 @@ function d3_geo_pathProjectStream(project) {
     };
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

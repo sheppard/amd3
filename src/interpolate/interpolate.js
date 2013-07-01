@@ -1,11 +1,6 @@
-import "../color/color";
-import "../color/rgb";
-import "rgb";
-import "transform";
-import "object";
-import "array";
-import "number";
-import "string";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../color/color","../color/rgb","./rgb","./transform","./object","./array","./number","./string"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.interpolate = d3_interpolate;
 
@@ -30,3 +25,8 @@ d3.interpolators = [
         : d3_interpolateNumber)(a, b);
   }
 ];
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.interpolate;
+});
+//>>excludeEnd("amd")

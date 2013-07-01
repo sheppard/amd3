@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 d3.range = function(start, stop, step) {
   if (arguments.length < 3) {
     step = 1;
@@ -22,3 +25,8 @@ function d3_range_integerScale(x) {
   while (x * k % 1) k *= 10;
   return k;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.range;
+});
+//>>excludeEnd("amd")

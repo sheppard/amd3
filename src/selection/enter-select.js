@@ -1,5 +1,6 @@
-import "selection";
-import "enter";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection","./enter"], function() {
+//>>excludeEnd("amd")
 
 d3_selection_enterPrototype.select = function(selector) {
   var subgroups = [],
@@ -25,3 +26,7 @@ d3_selection_enterPrototype.select = function(selector) {
 
   return d3_selection(subgroups);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

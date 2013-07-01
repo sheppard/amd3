@@ -1,4 +1,6 @@
-import "document";
+//>>excludeStart("amd", pragmas.amd)
+define(["./document"], function() {
+//>>excludeEnd("amd")
 
 function d3_vendorSymbol(object, name) {
   if (name in object) return name;
@@ -10,3 +12,7 @@ function d3_vendorSymbol(object, name) {
 }
 
 var d3_vendorPrefixes = ["webkit", "ms", "moz", "Moz", "o", "O"];
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

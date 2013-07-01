@@ -1,8 +1,6 @@
-import "../arrays/map";
-import "../core/identity";
-import "format-localized";
-import "formatPrefix";
-import "round";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/map","../core/identity","./format-localized","./formatPrefix","./round"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.format = function(specifier) {
   var match = d3_format_re.exec(specifier),
@@ -135,3 +133,8 @@ if (d3_format_grouping) {
     return t.reverse().join(d3_format_thousandsSeparator || "") + f;
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.format;
+});
+//>>excludeEnd("amd")

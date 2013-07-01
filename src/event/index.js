@@ -1,5 +1,7 @@
-import "dispatch";
-import "event";
-import "mouse";
-import "touches";
-import "timer";
+//>>excludeStart("amd", pragmas.amd)
+define(["./dispatch","./event","./mouse","./touches","./timer"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

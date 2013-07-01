@@ -1,5 +1,6 @@
-import "../core/array";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/array","./selection","./enter-select"], function() {
+//>>excludeEnd("amd")
 
 function d3_selection_enter(selection) {
   d3_arraySubclass(selection, d3_selection_enterPrototype);
@@ -18,4 +19,7 @@ d3_selection_enterPrototype.node = d3_selectionPrototype.node;
 d3_selection_enterPrototype.call = d3_selectionPrototype.call;
 d3_selection_enterPrototype.size = d3_selectionPrototype.size;
 
-import "enter-select";
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

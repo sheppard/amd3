@@ -1,4 +1,6 @@
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["./geo"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.stream = function(object, listener) {
   if (object && d3_geo_streamObjectType.hasOwnProperty(object.type)) {
@@ -69,3 +71,7 @@ function d3_geo_streamPolygon(coordinates, listener) {
   while (++i < n) d3_geo_streamLine(coordinates[i], listener, 1);
   listener.polygonEnd();
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

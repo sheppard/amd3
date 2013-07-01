@@ -1,5 +1,6 @@
-import "../selection/filter";
-import "transition";
+//>>excludeStart("amd", pragmas.amd)
+define(["../selection/filter","./transition"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.filter = function(filter) {
   var subgroups = [],
@@ -20,3 +21,7 @@ d3_transitionPrototype.filter = function(filter) {
 
   return d3_transition(subgroups, this.id, this.time).ease(this.ease());
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

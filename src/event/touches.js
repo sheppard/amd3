@@ -1,6 +1,6 @@
-import "../core/array";
-import "event";
-import "mouse";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/array","./event","./mouse"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.touches = function(container, touches) {
   if (arguments.length < 2) touches = d3_eventSource().touches;
@@ -10,3 +10,8 @@ d3.touches = function(container, touches) {
     return point;
   }) : [];
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.touches;
+});
+//>>excludeEnd("amd")

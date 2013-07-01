@@ -1,4 +1,6 @@
-import "../color/hcl";
+//>>excludeStart("amd", pragmas.amd)
+define(["../color/hcl"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateHcl = d3_interpolateHcl;
 
@@ -18,3 +20,7 @@ function d3_interpolateHcl(a, b) {
     return d3_hcl_lab(ah + bh * t, ac + bc * t, al + bl * t) + "";
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

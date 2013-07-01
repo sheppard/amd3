@@ -1,4 +1,6 @@
-import "../core/noop";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/noop"], function() {
+//>>excludeEnd("amd")
 
 // TODO Unify this code with d3.geom.polygon area?
 
@@ -38,3 +40,7 @@ function d3_geo_pathAreaRingStart() {
     nextPoint(x00, y00);
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

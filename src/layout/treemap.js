@@ -1,5 +1,6 @@
-import "layout";
-import "hierarchy";
+//>>excludeStart("amd", pragmas.amd)
+define(["./layout","./hierarchy"], function() {
+//>>excludeEnd("amd")
 
 // Squarified Treemaps by Mark Bruls, Kees Huizing, and Jarke J. van Wijk
 // Modified to support a target aspect ratio by Jeff Heer
@@ -228,3 +229,7 @@ function d3_layout_treemapPad(node, padding) {
   if (dy < 0) { y += dy / 2; dy = 0; }
   return {x: x, y: y, dx: dx, dy: dy};
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

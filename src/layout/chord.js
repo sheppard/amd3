@@ -1,6 +1,6 @@
-import "../arrays/range";
-import "../math/trigonometry";
-import "layout";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/range","../math/trigonometry","./layout"], function() {
+//>>excludeEnd("amd")
 
 d3.layout.chord = function() {
   var chord = {},
@@ -155,3 +155,7 @@ d3.layout.chord = function() {
 
   return chord;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

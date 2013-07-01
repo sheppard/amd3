@@ -1,7 +1,6 @@
-import "../math/trigonometry";
-import "geo";
-import "conic";
-import "projection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./geo","./conic","./projection"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_conicEqualArea(φ0, φ1) {
   var sinφ0 = Math.sin(φ0),
@@ -31,3 +30,7 @@ function d3_geo_conicEqualArea(φ0, φ1) {
 (d3.geo.conicEqualArea = function() {
   return d3_geo_conic(d3_geo_conicEqualArea);
 }).raw = d3_geo_conicEqualArea;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

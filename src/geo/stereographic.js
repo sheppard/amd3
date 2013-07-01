@@ -1,6 +1,6 @@
-import "azimuthal";
-import "geo";
-import "projection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./azimuthal","./geo","./projection"], function() {
+//>>excludeEnd("amd")
 
 var d3_geo_stereographic = d3_geo_azimuthal(
   function(cosλcosφ) { return 1 / (1 + cosλcosφ); },
@@ -10,3 +10,7 @@ var d3_geo_stereographic = d3_geo_azimuthal(
 (d3.geo.stereographic = function() {
   return d3_geo_projection(d3_geo_stereographic);
 }).raw = d3_geo_stereographic;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

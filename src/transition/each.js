@@ -1,5 +1,6 @@
-import "../selection/each";
-import "transition";
+//>>excludeStart("amd", pragmas.amd)
+define(["../selection/each","./transition"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.each = function(type, listener) {
   var id = this.id;
@@ -20,3 +21,7 @@ d3_transitionPrototype.each = function(type, listener) {
   }
   return this;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

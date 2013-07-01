@@ -1,5 +1,6 @@
-import "../arrays/map";
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/map","./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.data = function(value, key) {
   var i = -1,
@@ -116,3 +117,7 @@ d3_selectionPrototype.data = function(value, key) {
 function d3_selection_dataNode(data) {
   return {__data__: data};
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

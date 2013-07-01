@@ -1,4 +1,6 @@
-import "../core/document";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/document"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.mouse = function(container) {
   return d3_mousePoint(container, d3_eventSource());
@@ -37,3 +39,8 @@ function d3_mousePoint(container, e) {
   var rect = container.getBoundingClientRect();
   return [e.clientX - rect.left - container.clientLeft, e.clientY - rect.top - container.clientTop];
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.mouse;
+});
+//>>excludeEnd("amd")

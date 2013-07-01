@@ -1,11 +1,7 @@
-import "scale";
-import "linear";
-import "log";
-import "pow";
-import "sqrt";
-import "ordinal";
-import "category";
-import "quantile";
-import "quantize";
-import "threshold";
-import "identity";
+//>>excludeStart("amd", pragmas.amd)
+define(["./scale","./linear","./log","./pow","./sqrt","./ordinal","./category","./quantile","./quantize","./threshold","./identity"], function() {
+//>>excludeEnd("amd")
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

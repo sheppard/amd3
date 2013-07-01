@@ -1,6 +1,6 @@
-import "interval";
-import "time";
-import "year";
+//>>excludeStart("amd", pragmas.amd)
+define(["./interval","./time","./year"], function() {
+//>>excludeEnd("amd")
 
 d3.time.day = d3_time_interval(function(date) {
   var day = new d3_time(2000, 0);
@@ -19,3 +19,7 @@ d3.time.dayOfYear = function(date) {
   var year = d3.time.year(date);
   return Math.floor((date - year - (date.getTimezoneOffset() - year.getTimezoneOffset()) * 6e4) / 864e5);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

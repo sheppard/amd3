@@ -1,7 +1,6 @@
-import "../core/functor";
-import "../core/source";
-import "../core/target";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/functor","../core/source","../core/target","./svg"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.diagonal = function() {
   var source = d3_source,
@@ -41,3 +40,7 @@ d3.svg.diagonal = function() {
 function d3_svg_diagonalProjection(d) {
   return [d.x, d.y];
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

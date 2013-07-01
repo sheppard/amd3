@@ -1,6 +1,6 @@
-import "arc";
-import "line";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["./arc","./line","./svg"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.line.radial = function() {
   var line = d3_svg_line(d3_svg_lineRadial);
@@ -24,3 +24,7 @@ function d3_svg_lineRadial(points) {
   }
   return points;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

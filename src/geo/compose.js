@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(function() {
+//>>excludeEnd("amd")
 function d3_geo_compose(a, b) {
 
   function compose(x, y) {
@@ -10,3 +13,7 @@ function d3_geo_compose(a, b) {
 
   return compose;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

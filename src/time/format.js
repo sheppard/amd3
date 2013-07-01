@@ -1,9 +1,6 @@
-import "../arrays/map";
-import "../format/requote";
-import "day";
-import "format-localized";
-import "time";
-import "week";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/map","../format/requote","./day","./format-localized","./time","./week"], function() {
+//>>excludeEnd("amd")
 
 d3.time.format = function(template) {
   var n = template.length;
@@ -301,3 +298,7 @@ function d3_time_parseLiteralPercent(date, string, i) {
   var n = d3_time_percentRe.exec(string.substring(i, i + 1));
   return n ? i + n[0].length : -1;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

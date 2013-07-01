@@ -1,6 +1,6 @@
-import "../core/document";
-import "../core/vendor";
-import "../selection/on";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../core/vendor","../selection/on"], function() {
+//>>excludeEnd("amd")
 
 var d3_event_dragSelect = d3_vendorSymbol(d3_documentElement.style, "userSelect");
 
@@ -22,3 +22,7 @@ function d3_event_dragSuppress(type) {
     }
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

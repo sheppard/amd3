@@ -1,7 +1,6 @@
-import "../arrays/max";
-import "layout";
-import "hierarchy";
-import "tree";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/max","./layout","./hierarchy","./tree"], function() {
+//>>excludeEnd("amd")
 
 // Implements a hierarchical layout using the cluster (or dendrogram)
 // algorithm.
@@ -90,3 +89,7 @@ function d3_layout_clusterRight(node) {
   var children = node.children, n;
   return children && (n = children.length) ? d3_layout_clusterRight(children[n - 1]) : node;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

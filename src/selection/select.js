@@ -1,4 +1,6 @@
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.select = function(selector) {
   var subgroups = [],
@@ -30,3 +32,7 @@ function d3_selection_selector(selector) {
     return d3_select(selector, this);
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

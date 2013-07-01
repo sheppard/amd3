@@ -1,4 +1,6 @@
-import "transition";
+//>>excludeStart("amd", pragmas.amd)
+define(["./transition"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.transition = function() {
   var id0 = this.id,
@@ -23,3 +25,7 @@ d3_transitionPrototype.transition = function() {
 
   return d3_transition(subgroups, id1);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

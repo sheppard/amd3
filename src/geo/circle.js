@@ -1,8 +1,6 @@
-import "../math/trigonometry";
-import "cartesian";
-import "geo";
-import "rotation";
-import "spherical";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./cartesian","./geo","./rotation","./spherical"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.circle = function() {
   var origin = [0, 0],
@@ -79,3 +77,7 @@ function d3_geo_circleAngle(cr, point) {
   var angle = d3_acos(-a[1]);
   return ((-a[2] < 0 ? -angle : angle) + 2 * Math.PI - ε) % (2 * Math.PI);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

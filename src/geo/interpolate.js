@@ -1,5 +1,6 @@
-import "../math/trigonometry";
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./geo"], function() {
+//>>excludeEnd("amd")
 
 d3.geo.interpolate = function(source, target) {
   return d3_geo_interpolate(
@@ -36,3 +37,7 @@ function d3_geo_interpolate(x0, y0, x1, y1) {
 
   return interpolate;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

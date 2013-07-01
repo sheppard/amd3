@@ -1,23 +1,10 @@
-import "start";
-import "compat/";
+//>>excludeStart("amd", pragmas.amd)
+define(["./base","./compat/index","./arrays/index","./behavior/index","./color/index","./core/index","./dsv/index","./event/index","./format/index","./geo/index","./geom/index","./interpolate/index","./layout/index","./math/index","./scale/index","./selection/index","./svg/index","./time/index","./transition/index","./xhr/index"], function(d3) {
+//>>excludeEnd("amd")
 
-import "arrays/";
-import "behavior/";
-import "color/";
-import "core/";
-import "dsv/";
-import "event/";
-import "format/";
-import "geo/";
-import "geom/";
-import "interpolate/";
-import "layout/";
-import "math/";
-import "scale/";
-import "selection/";
-import "svg/";
-import "time/";
-import "transition/";
-import "xhr/";
 
-import "end";
+
+//>>excludeStart("amd", pragmas.amd)
+return d3;
+});
+//>>excludeEnd("amd")

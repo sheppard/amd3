@@ -1,5 +1,6 @@
-import "../core/document";
-import "../core/ns";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../core/document","../core/ns"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.transform = function(string) {
   var g = d3_document.createElementNS(d3.ns.prefix.svg, "g");
@@ -62,3 +63,8 @@ function d3_transformCombine(a, b, k) {
 }
 
 var d3_transformIdentity = {a: 1, b: 0, c: 0, d: 1, e: 0, f: 0};
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.transform;
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "format";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./format","./time"], function() {
+//>>excludeEnd("amd")
 
 d3.time.format.utc = function(template) {
   var local = d3.time.format(template);
@@ -29,3 +30,7 @@ d3.time.format.utc = function(template) {
 
   return format;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

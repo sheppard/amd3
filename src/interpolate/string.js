@@ -1,4 +1,6 @@
-import "number";
+//>>excludeStart("amd", pragmas.amd)
+define(["./number"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateString = d3_interpolateString;
 
@@ -86,3 +88,7 @@ function d3_interpolateString(a, b) {
 }
 
 var d3_interpolate_number = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

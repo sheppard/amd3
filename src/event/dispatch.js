@@ -1,4 +1,6 @@
-import "../arrays/map";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/map"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.dispatch = function() {
   var dispatch = new d3_dispatch,
@@ -67,3 +69,8 @@ function d3_dispatch_event(dispatch) {
 
   return event;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.dispatch;
+});
+//>>excludeEnd("amd")

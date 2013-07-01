@@ -1,6 +1,6 @@
-import "../arrays/merge";
-import "../core/rebind";
-import "layout";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/merge","../core/rebind","./layout"], function() {
+//>>excludeEnd("amd")
 
 d3.layout.hierarchy = function() {
   var sort = d3_layout_hierarchySort,
@@ -114,3 +114,7 @@ function d3_layout_hierarchyLinks(nodes) {
     });
   }));
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

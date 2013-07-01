@@ -1,4 +1,6 @@
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.property = function(name, value) {
   if (arguments.length < 2) {
@@ -41,3 +43,7 @@ function d3_selection_property(name, value) {
       ? propertyNull : (typeof value === "function"
       ? propertyFunction : propertyConstant);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

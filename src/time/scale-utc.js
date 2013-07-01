@@ -1,8 +1,6 @@
-import "../core/true";
-import "../scale/linear";
-import "format";
-import "format-utc";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/true","../scale/linear","./format","./format-utc","./scale"], function() {
+//>>excludeEnd("amd")
 
 var d3_time_scaleUTCMethods = d3_time_scaleLocalMethods.map(function(m) {
   return [m[0].utc, m[1]];
@@ -41,3 +39,7 @@ d3_time_scaleUTCMethods.year = function(extent, m) {
 d3.time.scale.utc = function() {
   return d3_time_scale(d3.scale.linear(), d3_time_scaleUTCMethods, d3_time_scaleUTCFormat);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

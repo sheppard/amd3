@@ -1,4 +1,6 @@
-import "../color/rgb";
+//>>excludeStart("amd", pragmas.amd)
+define(["../color/rgb"], function() {
+//>>excludeEnd("amd")
 
 d3.interpolateRgb = d3_interpolateRgb;
 
@@ -18,3 +20,7 @@ function d3_interpolateRgb(a, b) {
         + d3_rgb_hex(Math.round(ab + bb * t));
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

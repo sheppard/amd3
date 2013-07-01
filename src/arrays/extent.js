@@ -1,3 +1,6 @@
+//>>excludeStart("amd", pragmas.amd)
+define(["base"], function(d3) {
+//>>excludeEnd("amd")
 d3.extent = function(array, f) {
   var i = -1,
       n = array.length,
@@ -19,3 +22,8 @@ d3.extent = function(array, f) {
   }
   return [a, c];
 };
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.extent;
+});
+//>>excludeEnd("amd")

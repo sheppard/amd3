@@ -1,6 +1,6 @@
-import "../math/trigonometry";
-import "geo";
-import "projection";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./geo","./projection"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_mercator(λ, φ) {
   return [λ, Math.log(Math.tan(π / 4 + φ / 2))];
@@ -46,3 +46,7 @@ function d3_geo_mercatorProjection(project) {
 (d3.geo.mercator = function() {
   return d3_geo_mercatorProjection(d3_geo_mercator);
 }).raw = d3_geo_mercator;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

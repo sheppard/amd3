@@ -1,5 +1,6 @@
-import "conic-equal-area";
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["./conic-equal-area","./geo"], function() {
+//>>excludeEnd("amd")
 
 // ESRI:102003
 d3.geo.albers = function() {
@@ -9,3 +10,7 @@ d3.geo.albers = function() {
       .parallels([29.5, 45.5])
       .scale(1070);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

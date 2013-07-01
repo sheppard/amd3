@@ -1,6 +1,6 @@
-import "format";
-import "format-utc";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./format","./format-utc","./time"], function() {
+//>>excludeEnd("amd")
 
 var d3_time_formatIso = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ");
 
@@ -18,3 +18,7 @@ d3_time_formatIsoNative.parse = function(string) {
 };
 
 d3_time_formatIsoNative.toString = d3_time_formatIso.toString;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

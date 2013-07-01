@@ -1,5 +1,6 @@
-import "interval";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./interval","./time"], function() {
+//>>excludeEnd("amd")
 
 d3.time.hour = d3_time_interval(function(date) {
   var timezone = date.getTimezoneOffset() / 60;
@@ -12,3 +13,7 @@ d3.time.hour = d3_time_interval(function(date) {
 
 d3.time.hours = d3.time.hour.range;
 d3.time.hours.utc = d3.time.hour.utc.range;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

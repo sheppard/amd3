@@ -1,6 +1,6 @@
-import "../arrays/map";
-import "../core/identity";
-import "../math/trigonometry";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../arrays/map","../core/identity","../math/trigonometry"], function(d3) {
+//>>excludeEnd("amd")
 
 var d3_ease_default = function() { return d3_identity; };
 
@@ -108,3 +108,8 @@ function d3_ease_bounce(t) {
       : t < 2.5 / 2.75 ? 7.5625 * (t -= 2.25 / 2.75) * t + .9375
       : 7.5625 * (t -= 2.625 / 2.75) * t + .984375;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.ease;
+});
+//>>excludeEnd("amd")

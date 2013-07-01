@@ -1,7 +1,6 @@
-import "../arrays/range";
-import "../arrays/sum";
-import "../math/trigonometry";
-import "layout";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/range","../arrays/sum","../math/trigonometry","./layout"], function() {
+//>>excludeEnd("amd")
 
 d3.layout.pie = function() {
   var value = Number,
@@ -97,3 +96,7 @@ d3.layout.pie = function() {
 };
 
 var d3_layout_pieSortByValue = {};
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

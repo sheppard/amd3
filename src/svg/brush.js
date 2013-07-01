@@ -1,13 +1,6 @@
-import "../core/document";
-import "../core/rebind";
-import "../event/dispatch";
-import "../event/drag";
-import "../event/event";
-import "../event/mouse";
-import "../event/touches";
-import "../scale/scale";
-import "../selection/selection";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../core/rebind","../event/dispatch","../event/drag","../event/event","../event/mouse","../event/touches","../scale/scale","../selection/selection","./svg"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.brush = function() {
   var event = d3_eventDispatch(brush, "brushstart", "brush", "brushend"),
@@ -377,3 +370,7 @@ var d3_svg_brushResizes = [
   ["n", "s"],
   []
 ];
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

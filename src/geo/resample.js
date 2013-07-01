@@ -1,6 +1,6 @@
-import "../math/trigonometry";
-import "cartesian";
-import "stream";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./cartesian","./stream"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_resample(project) {
   var δ2 = .5, // precision, px²
@@ -96,3 +96,7 @@ function d3_geo_resample(project) {
 
   return resample;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

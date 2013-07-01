@@ -1,10 +1,6 @@
-import "../arrays/range";
-import "../core/functor";
-import "../math/trigonometry";
-import "../svg/line";
-import "delaunay";
-import "geom";
-import "polygon";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/range","../core/functor","../math/trigonometry","../svg/line","./delaunay","./geom","./polygon"], function() {
+//>>excludeEnd("amd")
 
 // Adapted from Nicolas Garcia Belmonte's JIT implementation:
 // http://blog.thejit.org/2010/02/12/voronoi-tessellation/
@@ -543,3 +539,7 @@ function d3_geom_voronoiTessellate(points, callback) {
     callback(lbnd.edge);
   }
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

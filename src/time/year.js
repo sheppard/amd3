@@ -1,6 +1,6 @@
-import "day";
-import "interval";
-import "time";
+//>>excludeStart("amd", pragmas.amd)
+define(["./day","./interval","./time"], function() {
+//>>excludeEnd("amd")
 
 d3.time.year = d3_time_interval(function(date) {
   date = d3.time.day(date);
@@ -14,3 +14,7 @@ d3.time.year = d3_time_interval(function(date) {
 
 d3.time.years = d3.time.year.range;
 d3.time.years.utc = d3.time.year.utc.range;
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

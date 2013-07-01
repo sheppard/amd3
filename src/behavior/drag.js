@@ -1,10 +1,6 @@
-import "../core/document";
-import "../core/rebind";
-import "../event/drag";
-import "../event/event";
-import "../event/mouse";
-import "../event/touches";
-import "behavior";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/document","../core/rebind","../event/drag","../event/event","../event/mouse","../event/touches","./behavior"], function() {
+//>>excludeEnd("amd")
 
 d3.behavior.drag = function() {
   var event = d3_eventDispatch(drag, "drag", "dragstart", "dragend"),
@@ -75,3 +71,7 @@ d3.behavior.drag = function() {
 
   return d3.rebind(drag, event, "on");
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

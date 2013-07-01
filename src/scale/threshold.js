@@ -1,5 +1,6 @@
-import "../arrays/bisect";
-import "scale";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/bisect","./scale"], function() {
+//>>excludeEnd("amd")
 
 d3.scale.threshold = function() {
   return d3_scale_threshold([.5], [0, 1]);
@@ -34,3 +35,7 @@ function d3_scale_threshold(domain, range) {
 
   return scale;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

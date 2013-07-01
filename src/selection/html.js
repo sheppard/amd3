@@ -1,4 +1,6 @@
-import "selection";
+//>>excludeStart("amd", pragmas.amd)
+define(["./selection"], function() {
+//>>excludeEnd("amd")
 
 d3_selectionPrototype.html = function(value) {
   return arguments.length
@@ -8,3 +10,7 @@ d3_selectionPrototype.html = function(value) {
       : function() { this.innerHTML = value; })
       : this.node().innerHTML;
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

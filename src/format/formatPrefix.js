@@ -1,4 +1,6 @@
-import "format";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","./format"], function(d3) {
+//>>excludeEnd("amd")
 
 var d3_formatPrefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"].map(d3_formatPrefix);
 
@@ -20,3 +22,8 @@ function d3_formatPrefix(d, i) {
     symbol: d
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.formatPrefix;
+});
+//>>excludeEnd("amd")

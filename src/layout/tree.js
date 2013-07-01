@@ -1,5 +1,6 @@
-import "layout";
-import "hierarchy";
+//>>excludeStart("amd", pragmas.amd)
+define(["./layout","./hierarchy"], function() {
+//>>excludeEnd("amd")
 
 // Node-link tree diagram using the Reingold-Tilford "tidy" algorithm
 d3.layout.tree = function() {
@@ -249,3 +250,7 @@ function d3_layout_treeAncestor(vim, node, ancestor) {
       ? vim._tree.ancestor
       : ancestor;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

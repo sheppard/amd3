@@ -1,5 +1,6 @@
-import "../math/trigonometry";
-import "geo";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry","./geo"], function() {
+//>>excludeEnd("amd")
 
 // Length returned in radians; multiply by radius for distance.
 d3.geo.distance = function(a, b) {
@@ -11,3 +12,7 @@ d3.geo.distance = function(a, b) {
       t;
   return Math.atan2(Math.sqrt((t = cosφ1 * sinΔλ) * t + (t = cosφ0 * sinφ1 - sinφ0 * cosφ1 * cosΔλ) * t), sinφ0 * sinφ1 + cosφ0 * cosφ1 * cosΔλ);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

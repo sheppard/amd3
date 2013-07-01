@@ -1,8 +1,6 @@
-import "../arrays/bisect";
-import "../arrays/min";
-import "../arrays/max";
-import "../core/functor";
-import "layout";
+//>>excludeStart("amd", pragmas.amd)
+define(["../arrays/bisect","../arrays/min","../arrays/max","../core/functor","./layout"], function() {
+//>>excludeEnd("amd")
 
 d3.layout.histogram = function() {
   var frequency = true,
@@ -108,3 +106,7 @@ function d3_layout_histogramBinFixed(range, n) {
 function d3_layout_histogramRange(values) {
   return [d3.min(values), d3.max(values)];
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,5 +1,6 @@
-import "color";
-import "rgb";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","./color","./rgb"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.hsl = function(h, s, l) {
   return arguments.length === 1
@@ -62,3 +63,8 @@ function d3_hsl_rgb(h, s, l) {
 
   return d3_rgb(vv(h + 120), vv(h), vv(h - 120));
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.hsl;
+});
+//>>excludeEnd("amd")

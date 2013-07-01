@@ -1,5 +1,6 @@
-import "layout";
-import "hierarchy";
+//>>excludeStart("amd", pragmas.amd)
+define(["./layout","./hierarchy"], function() {
+//>>excludeEnd("amd")
 
 d3.layout.partition = function() {
   var hierarchy = d3.layout.hierarchy(),
@@ -49,3 +50,7 @@ d3.layout.partition = function() {
 
   return d3_layout_hierarchyRebind(partition, hierarchy);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

@@ -1,6 +1,6 @@
-import "arc";
-import "diagonal";
-import "svg";
+//>>excludeStart("amd", pragmas.amd)
+define(["./arc","./diagonal","./svg"], function() {
+//>>excludeEnd("amd")
 
 d3.svg.diagonal.radial = function() {
   var diagonal = d3.svg.diagonal(),
@@ -24,3 +24,7 @@ function d3_svg_diagonalRadialProjection(projection) {
     return [r * Math.cos(a), r * Math.sin(a)];
   };
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

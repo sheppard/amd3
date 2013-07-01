@@ -1,6 +1,6 @@
-import "../core/functor";
-import "../svg/line";
-import "geom";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/functor","../svg/line","./geom"], function() {
+//>>excludeEnd("amd")
 
 d3.geom.quadtree = function(points, x1, y1, x2, y2) {
   var x = d3_svg_lineX,
@@ -188,3 +188,7 @@ function d3_geom_quadtreeVisit(f, node, x1, y1, x2, y2) {
     if (children[3]) d3_geom_quadtreeVisit(f, children[3], sx, sy, x2, y2);
   }
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

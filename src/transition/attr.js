@@ -1,7 +1,6 @@
-import "../core/ns";
-import "../interpolate/interpolate";
-import "transition";
-import "tween";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/ns","../interpolate/interpolate","./transition","./tween"], function() {
+//>>excludeEnd("amd")
 
 d3_transitionPrototype.attr = function(nameNS, value) {
   if (arguments.length < 2) {
@@ -55,3 +54,7 @@ d3_transitionPrototype.attrTween = function(nameNS, tween) {
 
   return this.tween("attr." + nameNS, name.local ? attrTweenNS : attrTween);
 };
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

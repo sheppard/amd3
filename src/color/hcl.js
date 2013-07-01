@@ -1,7 +1,6 @@
-import "../math/trigonometry";
-import "color";
-import "lab";
-import "rgb";
+//>>excludeStart("amd", pragmas.amd)
+define(["base","../math/trigonometry","./color","./lab","./rgb"], function(d3) {
+//>>excludeEnd("amd")
 
 d3.hcl = function(h, c, l) {
   return arguments.length === 1
@@ -40,3 +39,8 @@ function d3_hcl_lab(h, c, l) {
   if (isNaN(c)) c = 0;
   return d3_lab(l, Math.cos(h *= d3_radians) * c, Math.sin(h) * c);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+return d3.hcl;
+});
+//>>excludeEnd("amd")

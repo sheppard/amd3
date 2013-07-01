@@ -1,4 +1,6 @@
-import "../math/trigonometry";
+//>>excludeStart("amd", pragmas.amd)
+define(["../math/trigonometry"], function() {
+//>>excludeEnd("amd")
 
 function d3_geo_spherical(cartesian) {
   return [
@@ -10,3 +12,7 @@ function d3_geo_spherical(cartesian) {
 function d3_geo_sphericalEqual(a, b) {
   return Math.abs(a[0] - b[0]) < ε && Math.abs(a[1] - b[1]) < ε;
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")

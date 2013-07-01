@@ -1,7 +1,6 @@
-import "../core/true";
-import "../math/trigonometry";
-import "clip";
-import "point-in-polygon";
+//>>excludeStart("amd", pragmas.amd)
+define(["../core/true","../math/trigonometry","./clip","./point-in-polygon"], function() {
+//>>excludeEnd("amd")
 
 var d3_geo_clipAntimeridian = d3_geo_clip(
     d3_true,
@@ -99,3 +98,7 @@ var d3_geo_clipAntimeridianPoint = [-π, 0];
 function d3_geo_clipAntimeridianPolygonContains(polygon) {
   return d3_geo_pointInPolygon(d3_geo_clipAntimeridianPoint, polygon);
 }
+
+//>>excludeStart("amd", pragmas.amd)
+});
+//>>excludeEnd("amd")
