@@ -12269,4 +12269,6 @@ d3.xml = d3_xhrType(function(request) {
 
 
 
+
+return d3;
 })();
