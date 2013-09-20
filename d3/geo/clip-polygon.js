@@ -1,5 +1,4 @@
-import "../math/trigonometry";
-import "spherical";
+define(["../math/trigonometry","./spherical"], function() {
 
 // General spherical polygon clipping algorithm: takes a polygon, cuts it into
 // visible line segments and rejoins the segments by interpolating along the
@@ -92,3 +91,5 @@ function d3_geo_clipPolygonLinkCircular(array) {
   a.next = b = array[0];
   b.prev = a;
 }
+
+});

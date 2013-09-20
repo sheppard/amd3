@@ -1,4 +1,4 @@
-import "../color/rgb";
+define(["../color/rgb"], function() {
 
 d3.interpolateRgb = d3_interpolateRgb;
 
@@ -18,3 +18,5 @@ function d3_interpolateRgb(a, b) {
         + d3_rgb_hex(Math.round(ab + bb * t));
   };
 }
+
+});

@@ -1,3 +1,3 @@
-import "dsv";
-import "csv";
-import "tsv";
+define(["./dsv","./csv","./tsv"], function() {
+
+});

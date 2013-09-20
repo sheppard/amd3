@@ -1,4 +1,4 @@
-import "transition";
+define(["./transition"], function() {
 
 d3_transitionPrototype.transition = function() {
   var id0 = this.id,
@@ -23,3 +23,5 @@ d3_transitionPrototype.transition = function() {
 
   return d3_transition(subgroups, id1);
 };
+
+});

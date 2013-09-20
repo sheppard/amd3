@@ -1,7 +1,4 @@
-import "../math/trigonometry";
-import "color";
-import "lab";
-import "rgb";
+define(["d3/base","../math/trigonometry","./color","./lab","./rgb"], function(d3) {
 
 d3.hcl = function(h, c, l) {
   return arguments.length === 1
@@ -40,3 +37,6 @@ function d3_hcl_lab(h, c, l) {
   if (isNaN(c)) c = 0;
   return d3_lab(l, Math.cos(h *= d3_radians) * c, Math.sin(h) * c);
 }
+
+return d3.hcl;
+});

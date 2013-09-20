@@ -1,7 +1,4 @@
-import "../core/noop";
-import "../math/trigonometry";
-import "geo";
-import "stream";
+define(["../core/noop","../math/trigonometry","./geo","./stream"], function() {
 
 d3.geo.centroid = function(object) {
   d3_geo_centroidW0 = d3_geo_centroidW1 =
@@ -147,3 +144,5 @@ function d3_geo_centroidRingStart() {
     d3_geo_centroidPointXYZ(x0, y0, z0);
   }
 }
+
+});

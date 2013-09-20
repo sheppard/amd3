@@ -1,5 +1,4 @@
-import "layout";
-import "hierarchy";
+define(["./layout","./hierarchy"], function() {
 
 d3.layout.partition = function() {
   var hierarchy = d3.layout.hierarchy(),
@@ -49,3 +48,5 @@ d3.layout.partition = function() {
 
   return d3_layout_hierarchyRebind(partition, hierarchy);
 };
+
+});

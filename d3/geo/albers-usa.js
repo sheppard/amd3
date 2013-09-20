@@ -1,6 +1,4 @@
-import "albers";
-import "conic-equal-area";
-import "geo";
+define(["./albers","./conic-equal-area","./geo"], function() {
 
 // A composite projection for the United States, configured by default for
 // 960×500. Also works quite well at 960×600 with scale 1285. The set of
@@ -127,3 +125,5 @@ d3.geo.albersUsa = function() {
 
   return albersUsa.scale(1070);
 };
+
+});

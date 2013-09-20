@@ -1,6 +1,4 @@
-import "arc";
-import "diagonal";
-import "svg";
+define(["./arc","./diagonal","./svg"], function() {
 
 d3.svg.diagonal.radial = function() {
   var diagonal = d3.svg.diagonal(),
@@ -24,3 +22,5 @@ function d3_svg_diagonalRadialProjection(projection) {
     return [r * Math.cos(a), r * Math.sin(a)];
   };
 }
+
+});

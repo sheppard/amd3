@@ -1,8 +1,4 @@
-import "../core/ns";
-import "../interpolate/interpolate";
-import "../interpolate/transform";
-import "transition";
-import "tween";
+define(["../core/ns","../interpolate/interpolate","../interpolate/transform","./transition","./tween"], function() {
 
 d3_transitionPrototype.attr = function(nameNS, value) {
   if (arguments.length < 2) {
@@ -56,3 +52,5 @@ d3_transitionPrototype.attrTween = function(nameNS, tween) {
 
   return this.tween("attr." + nameNS, name.local ? attrTweenNS : attrTween);
 };
+
+});

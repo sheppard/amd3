@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.text = function(value) {
   return arguments.length
@@ -8,3 +8,5 @@ d3_selectionPrototype.text = function(value) {
       : function() { this.textContent = value; })
       : this.node().textContent;
 };
+
+});

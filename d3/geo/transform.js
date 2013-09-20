@@ -1,5 +1,4 @@
-import "geo";
-import "../core/array";
+define(["./geo","../core/array"], function() {
 
 d3.geo.transform = function(methods) {
   return {
@@ -23,3 +22,5 @@ d3_geo_transform.prototype = {
   polygonStart: function() { this.stream.polygonStart(); },
   polygonEnd: function() { this.stream.polygonEnd(); }
 };
+
+});

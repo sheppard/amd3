@@ -1,3 +1,4 @@
+define(function() {
 function d3_class(ctor, properties) {
   try {
     for (var key in properties) {
@@ -10,3 +11,6 @@ function d3_class(ctor, properties) {
     ctor.prototype = properties;
   }
 }
+
+return d3_class;
+});

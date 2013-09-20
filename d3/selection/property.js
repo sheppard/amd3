@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.property = function(name, value) {
   if (arguments.length < 2) {
@@ -41,3 +41,5 @@ function d3_selection_property(name, value) {
       ? propertyNull : (typeof value === "function"
       ? propertyFunction : propertyConstant);
 }
+
+});

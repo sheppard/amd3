@@ -1,6 +1,4 @@
-import "../core/document";
-import "../core/vendor";
-import "../selection/on";
+define(["../core/document","../core/vendor","../selection/on"], function() {
 
 var d3_event_dragSelect = d3_vendorSymbol(d3_documentElement.style, "userSelect"),
     d3_event_dragId = 0;
@@ -25,3 +23,5 @@ function d3_event_dragSuppress() {
     }
   };
 }
+
+});

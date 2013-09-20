@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.order = function() {
   for (var j = -1, m = this.length; ++j < m;) {
@@ -11,3 +11,5 @@ d3_selectionPrototype.order = function() {
   }
   return this;
 };
+
+});

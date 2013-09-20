@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.random = {
   normal: function(µ, σ) {
     var n = arguments.length;
@@ -26,3 +27,6 @@ d3.random = {
     };
   }
 };
+
+return d3.random;
+});

@@ -1,8 +1,4 @@
-import "../scale/linear";
-import "../scale/scale";
-import "../selection/selection";
-import "../transition/transition";
-import "svg";
+define(["../scale/linear","../scale/scale","../selection/selection","../transition/transition","./svg"], function() {
 
 d3.svg.axis = function() {
   var scale = d3.scale.linear(),
@@ -183,3 +179,5 @@ function d3_svg_axisX(selection, x) {
 function d3_svg_axisY(selection, y) {
   selection.attr("transform", function(d) { return "translate(0," + y(d) + ")"; });
 }
+
+});

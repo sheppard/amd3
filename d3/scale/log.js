@@ -1,7 +1,4 @@
-import "../format/format";
-import "linear";
-import "nice";
-import "scale";
+define(["../format/format","./linear","./nice","./scale"], function() {
 
 d3.scale.log = function() {
   return d3_scale_log(d3.scale.linear().domain([0, 1]), 10, true, [1, 10]);
@@ -90,3 +87,5 @@ function d3_scale_log(linear, base, positive, domain) {
 
 var d3_scale_logFormat = d3.format(".0e"),
     d3_scale_logNiceNegative = {floor: function(x) { return -Math.ceil(-x); }, ceil: function(x) { return -Math.floor(-x); }};
+
+});

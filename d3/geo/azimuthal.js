@@ -1,3 +1,4 @@
+define(function() {
 // Abstract azimuthal projection.
 function d3_geo_azimuthal(scale, angle) {
   function azimuthal(λ, φ) {
@@ -23,3 +24,5 @@ function d3_geo_azimuthal(scale, angle) {
 
   return azimuthal;
 }
+
+});

@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 // TODO remove(selector)?
 // TODO remove(node)?
@@ -9,3 +9,5 @@ d3_selectionPrototype.remove = function() {
     if (parent) parent.removeChild(this);
   });
 };
+
+});

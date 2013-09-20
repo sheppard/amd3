@@ -1,6 +1,4 @@
-import "../interpolate/ease";
-import "../selection/each";
-import "transition";
+define(["../interpolate/ease","../selection/each","./transition"], function() {
 
 d3_transitionPrototype.ease = function(value) {
   var id = this.id;
@@ -8,3 +6,5 @@ d3_transitionPrototype.ease = function(value) {
   if (typeof value !== "function") value = d3.ease.apply(d3, arguments);
   return d3_selection_each(this, function(node) { node.__transition__[id].ease = value; });
 };
+
+});

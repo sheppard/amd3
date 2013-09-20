@@ -1,7 +1,4 @@
-import "day";
-import "interval";
-import "time";
-import "year";
+define(["./day","./interval","./time","./year"], function() {
 
 d3_time_daySymbols.forEach(function(day, i) {
   day = day.toLowerCase();
@@ -30,3 +27,5 @@ d3_time.week = d3_time.sunday;
 d3_time.weeks = d3_time.sunday.range;
 d3_time.weeks.utc = d3_time.sunday.utc.range;
 d3_time.weekOfYear = d3_time.sundayOfYear;
+
+});

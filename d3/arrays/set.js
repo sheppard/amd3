@@ -1,5 +1,4 @@
-import "../core/class";
-import "map";
+define(["d3/base","../core/class","./map"], function(d3) {
 
 d3.set = function(array) {
   var set = new d3_Set;
@@ -35,4 +34,7 @@ d3_class(d3_Set, {
       }
     }
   }
+});
+
+return d3.set;
 });

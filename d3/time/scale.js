@@ -1,18 +1,4 @@
-import "../arrays/bisect";
-import "../arrays/range";
-import "../core/rebind";
-import "../core/true";
-import "../scale/linear";
-import "../scale/nice";
-import "day";
-import "format";
-import "hour";
-import "minute";
-import "month";
-import "second";
-import "time";
-import "week";
-import "year";
+define(["../arrays/bisect","../arrays/range","../core/rebind","../core/true","../scale/linear","../scale/nice","./day","./format","./hour","./minute","./month","./second","./time","./week","./year"], function() {
 
 function d3_time_scale(linear, methods, format) {
 
@@ -163,3 +149,5 @@ var d3_time_scaleMilliseconds = {
     return d3.range(+start, +stop, step).map(d3_time_scaleDate);
   }
 };
+
+});

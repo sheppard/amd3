@@ -1,13 +1,4 @@
-import "../arrays/range";
-import "../core/rebind";
-import "../interpolate/interpolate";
-import "../interpolate/round";
-import "../interpolate/uninterpolate";
-import "../format/format";
-import "bilinear";
-import "nice";
-import "polylinear";
-import "scale";
+define(["../arrays/range","../core/rebind","../interpolate/interpolate","../interpolate/round","../interpolate/uninterpolate","../format/format","./bilinear","./nice","./polylinear","./scale"], function() {
 
 d3.scale.linear = function() {
   return d3_scale_linear([0, 1], [0, 1], d3_interpolate, false);
@@ -120,3 +111,5 @@ function d3_scale_linearTickFormat(domain, m, format) {
       ? format.replace(d3_format_re, function(a, b, c, d, e, f, g, h, i, j) { return [b, c, d, e, f, g, h, i || "." + (precision - (j === "%") * 2), j].join(""); })
       : ",." + precision + "f");
 }
+
+});

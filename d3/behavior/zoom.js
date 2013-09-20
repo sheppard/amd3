@@ -1,12 +1,4 @@
-import "../core/document";
-import "../core/rebind";
-import "../event/drag";
-import "../event/event";
-import "../event/mouse";
-import "../event/touches";
-import "../selection/selection";
-import "../interpolate/zoom";
-import "behavior";
+define(["../core/document","../core/rebind","../event/drag","../event/event","../event/mouse","../event/touches","../selection/selection","../interpolate/zoom","./behavior"], function() {
 
 d3.behavior.zoom = function() {
   var view = {x: 0, y: 0, k: 1},
@@ -321,3 +313,5 @@ var d3_behavior_zoomDelta, d3_behavior_zoomWheel
     = "onwheel" in d3_document ? (d3_behavior_zoomDelta = function() { return -d3.event.deltaY * (d3.event.deltaMode ? 120 : 1); }, "wheel")
     : "onmousewheel" in d3_document ? (d3_behavior_zoomDelta = function() { return d3.event.wheelDelta; }, "mousewheel")
     : (d3_behavior_zoomDelta = function() { return -d3.event.detail; }, "MozMousePixelScroll");
+
+});

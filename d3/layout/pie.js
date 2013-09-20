@@ -1,7 +1,4 @@
-import "../arrays/range";
-import "../arrays/sum";
-import "../math/trigonometry";
-import "layout";
+define(["../arrays/range","../arrays/sum","../math/trigonometry","./layout"], function() {
 
 d3.layout.pie = function() {
   var value = Number,
@@ -97,3 +94,5 @@ d3.layout.pie = function() {
 };
 
 var d3_layout_pieSortByValue = {};
+
+});

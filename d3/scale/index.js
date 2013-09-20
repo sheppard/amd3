@@ -1,11 +1,3 @@
-import "scale";
-import "linear";
-import "log";
-import "pow";
-import "sqrt";
-import "ordinal";
-import "category";
-import "quantile";
-import "quantize";
-import "threshold";
-import "identity";
+define(["./scale","./linear","./log","./pow","./sqrt","./ordinal","./category","./quantile","./quantize","./threshold","./identity"], function() {
+
+});

@@ -1,5 +1,4 @@
-import "../core/document";
-import "selection";
+define(["../core/document","./selection"], function() {
 
 d3_selectionPrototype.style = function(name, value, priority) {
   var n = arguments.length;
@@ -54,3 +53,5 @@ function d3_selection_style(name, value, priority) {
       ? styleNull : (typeof value === "function"
       ? styleFunction : styleConstant);
 }
+
+});

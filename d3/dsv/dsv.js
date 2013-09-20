@@ -1,5 +1,4 @@
-import "../arrays/set";
-import "../xhr/xhr";
+define(["d3/base","../arrays/set","../xhr/xhr"], function(d3) {
 
 d3.dsv = function(delimiter, mimeType) {
   var reFormat = new RegExp("[\"" + delimiter + "\n]"),
@@ -134,3 +133,6 @@ d3.dsv = function(delimiter, mimeType) {
 
   return dsv;
 };
+
+return d3.dsv;
+});

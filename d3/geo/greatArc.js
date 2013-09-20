@@ -1,7 +1,4 @@
-import "../core/source";
-import "../core/target";
-import "geo";
-import "distance";
+define(["../core/source","../core/target","./geo","./distance"], function() {
 
 // @deprecated use {type: "LineString"} or d3.geo.distance instead.
 d3.geo.greatArc = function() {
@@ -40,3 +37,5 @@ d3.geo.greatArc = function() {
 
   return greatArc;
 };
+
+});

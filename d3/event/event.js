@@ -1,4 +1,4 @@
-import "dispatch";
+define(["d3/base","./dispatch"], function(d3) {
 
 d3.event = null;
 
@@ -48,3 +48,6 @@ function d3_eventDispatch(target) {
 
   return dispatch;
 }
+
+return d3.event;
+});

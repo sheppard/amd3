@@ -1,5 +1,4 @@
-import "../core/ns";
-import "selection";
+define(["../core/ns","./selection"], function() {
 
 d3_selectionPrototype.attr = function(name, value) {
   if (arguments.length < 2) {
@@ -60,3 +59,5 @@ function d3_selection_attr(name, value) {
       ? (name.local ? attrFunctionNS : attrFunction)
       : (name.local ? attrConstantNS : attrConstant));
 }
+
+});

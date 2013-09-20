@@ -1,6 +1,3 @@
-import "color";
-import "rgb";
-import "hsl";
-import "hcl";
-import "lab";
-import "xyz";
+define(["./color","./rgb","./hsl","./hcl","./lab","./xyz"], function() {
+
+});

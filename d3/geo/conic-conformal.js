@@ -1,7 +1,4 @@
-import "../math/trigonometry";
-import "conic";
-import "geo";
-import "projection";
+define(["../math/trigonometry","./conic","./geo","./projection"], function() {
 
 function d3_geo_conicConformal(φ0, φ1) {
   var cosφ0 = Math.cos(φ0),
@@ -34,3 +31,5 @@ function d3_geo_conicConformal(φ0, φ1) {
 (d3.geo.conicConformal = function() {
   return d3_geo_conic(d3_geo_conicConformal);
 }).raw = d3_geo_conicConformal;
+
+});

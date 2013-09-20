@@ -1,7 +1,4 @@
-import "../core/noop";
-import "../math/trigonometry";
-import "geo";
-import "stream";
+define(["../core/noop","../math/trigonometry","./geo","./stream"], function() {
 
 d3.geo.length = function(object) {
   d3_geo_lengthSum = 0;
@@ -41,3 +38,5 @@ function d3_geo_lengthLineStart() {
     λ0 = λ, sinφ0 = sinφ, cosφ0 = cosφ;
   }
 }
+
+});

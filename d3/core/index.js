@@ -1,3 +1,3 @@
-import "functor";
-import "ns";
-import "rebind";
+define(["./functor","./ns","./rebind"], function() {
+
+});

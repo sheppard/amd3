@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.extent = function(array, f) {
   var i = -1,
       n = array.length,
@@ -19,3 +20,6 @@ d3.extent = function(array, f) {
   }
   return [a, c];
 };
+
+return d3.extent;
+});

@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 // R-7 per <http://en.wikipedia.org/wiki/Quantile>
 d3.quantile = function(values, p) {
   var H = (values.length - 1) * p + 1,
@@ -6,3 +7,6 @@ d3.quantile = function(values, p) {
       e = H - h;
   return e ? v + e * (values[h] - v) : v;
 };
+
+return d3.quantile;
+});

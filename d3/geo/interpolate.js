@@ -1,5 +1,4 @@
-import "../math/trigonometry";
-import "geo";
+define(["../math/trigonometry","./geo"], function() {
 
 d3.geo.interpolate = function(source, target) {
   return d3_geo_interpolate(
@@ -36,3 +35,5 @@ function d3_geo_interpolate(x0, y0, x1, y1) {
 
   return interpolate;
 };
+
+});

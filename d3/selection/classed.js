@@ -1,6 +1,4 @@
-import "../format/collapse";
-import "../format/requote";
-import "selection";
+define(["../format/collapse","../format/requote","./selection"], function() {
 
 d3_selectionPrototype.classed = function(name, value) {
   if (arguments.length < 2) {
@@ -70,3 +68,5 @@ function d3_selection_classedName(name) {
     }
   };
 }
+
+});

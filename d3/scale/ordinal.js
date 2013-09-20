@@ -1,6 +1,4 @@
-import "../arrays/map";
-import "../arrays/range";
-import "scale";
+define(["../arrays/map","../arrays/range","./scale"], function() {
 
 d3.scale.ordinal = function() {
   return d3_scale_ordinal([], {t: "range", a: [[]]});
@@ -90,3 +88,5 @@ function d3_scale_ordinal(domain, ranger) {
 
   return scale.domain(domain);
 }
+
+});

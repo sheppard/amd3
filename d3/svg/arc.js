@@ -1,6 +1,4 @@
-import "../core/functor";
-import "../math/trigonometry";
-import "svg";
+define(["../core/functor","../math/trigonometry","./svg"], function() {
 
 d3.svg.arc = function() {
   var innerRadius = d3_svg_arcInnerRadius,
@@ -97,3 +95,5 @@ function d3_svg_arcStartAngle(d) {
 function d3_svg_arcEndAngle(d) {
   return d.endAngle;
 }
+
+});

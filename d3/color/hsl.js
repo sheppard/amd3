@@ -1,5 +1,4 @@
-import "color";
-import "rgb";
+define(["d3/base","./color","./rgb"], function(d3) {
 
 d3.hsl = function(h, s, l) {
   return arguments.length === 1
@@ -62,3 +61,6 @@ function d3_hsl_rgb(h, s, l) {
 
   return d3_rgb(vv(h + 120), vv(h), vv(h - 120));
 }
+
+return d3.hsl;
+});

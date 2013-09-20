@@ -1,4 +1,4 @@
-import "format";
+define(["d3/base","./format"], function(d3) {
 
 var d3_formatPrefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"].map(d3_formatPrefix);
 
@@ -20,3 +20,6 @@ function d3_formatPrefix(d, i) {
     symbol: d
   };
 }
+
+return d3.formatPrefix;
+});

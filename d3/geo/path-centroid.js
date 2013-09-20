@@ -1,4 +1,4 @@
-import "centroid";
+define(["./centroid"], function() {
 
 // TODO Unify this code with d3.geom.polygon centroid?
 // TODO Enforce positive area for exterior, negative area for interior?
@@ -76,3 +76,5 @@ function d3_geo_pathCentroidRingStart() {
     nextPoint(x00, y00);
   };
 }
+
+});

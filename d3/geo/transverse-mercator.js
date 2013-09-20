@@ -1,7 +1,4 @@
-import "../math/trigonometry";
-import "geo";
-import "mercator";
-import "projection";
+define(["../math/trigonometry","./geo","./mercator","./projection"], function() {
 
 function d3_geo_transverseMercator(λ, φ) {
   var B = Math.cos(φ) * Math.sin(λ);
@@ -21,3 +18,5 @@ d3_geo_transverseMercator.invert = function(x, y) {
 (d3.geo.transverseMercator = function() {
   return d3_geo_mercatorProjection(d3_geo_transverseMercator);
 }).raw = d3_geo_transverseMercator;
+
+});

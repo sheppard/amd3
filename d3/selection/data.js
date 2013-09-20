@@ -1,5 +1,4 @@
-import "../arrays/map";
-import "selection";
+define(["../arrays/map","./selection"], function() {
 
 d3_selectionPrototype.data = function(value, key) {
   var i = -1,
@@ -116,3 +115,5 @@ d3_selectionPrototype.data = function(value, key) {
 function d3_selection_dataNode(data) {
   return {__data__: data};
 }
+
+});

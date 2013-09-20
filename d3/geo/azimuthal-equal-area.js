@@ -1,6 +1,4 @@
-import "azimuthal";
-import "geo";
-import "projection";
+define(["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_azimuthalEqualArea = d3_geo_azimuthal(
   function(cosλcosφ) { return Math.sqrt(2 / (1 + cosλcosφ)); },
@@ -10,3 +8,5 @@ var d3_geo_azimuthalEqualArea = d3_geo_azimuthal(
 (d3.geo.azimuthalEqualArea = function() {
   return d3_geo_projection(d3_geo_azimuthalEqualArea);
 }).raw = d3_geo_azimuthalEqualArea;
+
+});

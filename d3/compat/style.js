@@ -1,4 +1,4 @@
-import "../core/document";
+define(["../core/document"], function() {
 
 try {
   d3_document.createElement("div").style.setProperty("opacity", 0, "");
@@ -18,3 +18,5 @@ try {
     d3_style_setProperty.call(this, name, value + "", priority);
   };
 }
+
+});

@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.range = function(start, stop, step) {
   if (arguments.length < 3) {
     step = 1;
@@ -22,3 +23,6 @@ function d3_range_integerScale(x) {
   while (x * k % 1) k *= 10;
   return k;
 }
+
+return d3.range;
+});

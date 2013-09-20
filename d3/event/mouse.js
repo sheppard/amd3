@@ -1,4 +1,4 @@
-import "../core/document";
+define(["d3/base","../core/document"], function(d3) {
 
 d3.mouse = function(container) {
   return d3_mousePoint(container, d3_eventSource());
@@ -33,3 +33,6 @@ function d3_mousePoint(container, e) {
   var rect = container.getBoundingClientRect();
   return [e.clientX - rect.left - container.clientLeft, e.clientY - rect.top - container.clientTop];
 };
+
+return d3.mouse;
+});

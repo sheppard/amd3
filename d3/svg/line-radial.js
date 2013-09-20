@@ -1,6 +1,4 @@
-import "arc";
-import "line";
-import "svg";
+define(["./arc","./line","./svg"], function() {
 
 d3.svg.line.radial = function() {
   var line = d3_svg_line(d3_svg_lineRadial);
@@ -24,3 +22,5 @@ function d3_svg_lineRadial(points) {
   }
   return points;
 }
+
+});

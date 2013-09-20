@@ -1,4 +1,4 @@
-import "../core/noop";
+define(["../core/noop"], function() {
 
 // TODO Unify this code with d3.geom.polygon area?
 
@@ -38,3 +38,5 @@ function d3_geo_pathAreaRingStart() {
     nextPoint(x00, y00);
   };
 }
+
+});

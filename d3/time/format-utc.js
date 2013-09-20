@@ -1,5 +1,4 @@
-import "format";
-import "time";
+define(["./format","./time"], function() {
 
 d3_time_format.utc = d3_time_formatUtc;
 
@@ -31,3 +30,5 @@ function d3_time_formatUtc(template) {
 
   return format;
 }
+
+});

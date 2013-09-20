@@ -1,8 +1,4 @@
-import "../arrays/merge";
-import "../math/trigonometry";
-import "geo";
-import "clip";
-import "clip-polygon";
+define(["../arrays/merge","../math/trigonometry","./geo","./clip","./clip-polygon"], function() {
 
 var d3_geo_clipExtentMAX = 1e9;
 
@@ -232,3 +228,5 @@ function d3_geo_clipExtentT(num, denominator, t) {
   }
   return true;
 }
+
+});

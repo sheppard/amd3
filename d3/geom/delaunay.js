@@ -1,5 +1,4 @@
-import "geom";
-import "voronoi";
+define(["./geom","./voronoi"], function() {
 
 // @deprecated; use d3.geom.voronoi links instead.
 d3.geom.delaunay = function(vertices) {
@@ -29,3 +28,5 @@ d3.geom.delaunay = function(vertices) {
 
   return triangles;
 };
+
+});

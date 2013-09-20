@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.sum = function(array, f) {
   var s = 0,
       n = array.length,
@@ -12,3 +13,6 @@ d3.sum = function(array, f) {
 
   return s;
 };
+
+return d3.sum;
+});

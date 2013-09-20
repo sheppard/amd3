@@ -1,5 +1,4 @@
-import "layout";
-import "hierarchy";
+define(["./layout","./hierarchy"], function() {
 
 // Node-link tree diagram using the Reingold-Tilford "tidy" algorithm
 d3.layout.tree = function() {
@@ -249,3 +248,5 @@ function d3_layout_treeAncestor(vim, node, ancestor) {
       ? vim._tree.ancestor
       : ancestor;
 }
+
+});

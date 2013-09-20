@@ -1,5 +1,4 @@
-import "../math/transform";
-import "number";
+define(["../math/transform","./number"], function() {
 
 d3.interpolateTransform = d3_interpolateTransform;
 
@@ -54,3 +53,5 @@ function d3_interpolateTransform(a, b) {
     return s.join("");
   };
 }
+
+});

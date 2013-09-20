@@ -1,5 +1,4 @@
-import "selection";
-import "enter";
+define(["./selection","./enter"], function() {
 
 d3_selection_enterPrototype.select = function(selector) {
   var subgroups = [],
@@ -25,3 +24,5 @@ d3_selection_enterPrototype.select = function(selector) {
 
   return d3_selection(subgroups);
 };
+
+});

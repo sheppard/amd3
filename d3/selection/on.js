@@ -1,10 +1,4 @@
-import "../arrays/map";
-import "../core/array";
-import "../core/document";
-import "../core/noop";
-import "../event/event";
-import "../format/requote";
-import "selection";
+define(["../arrays/map","../core/array","../core/document","../core/noop","../event/event","../format/requote","./selection"], function() {
 
 d3_selectionPrototype.on = function(type, listener, capture) {
   var n = arguments.length;
@@ -102,3 +96,5 @@ function d3_selection_onFilter(listener, argumentz) {
     }
   };
 }
+
+});

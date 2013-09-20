@@ -1,6 +1,4 @@
-import "../color/rgb";
-import "ordinal";
-import "scale";
+define(["../color/rgb","./ordinal","./scale"], function() {
 
 /*
  * This product includes color specifications and designs developed by Cynthia
@@ -56,3 +54,5 @@ var d3_category20c = [
   0x756bb1, 0x9e9ac8, 0xbcbddc, 0xdadaeb,
   0x636363, 0x969696, 0xbdbdbd, 0xd9d9d9
 ].map(d3_rgbString);
+
+});

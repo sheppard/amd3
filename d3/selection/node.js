@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.node = function() {
   for (var j = 0, m = this.length; j < m; j++) {
@@ -9,3 +9,5 @@ d3_selectionPrototype.node = function() {
   }
   return null;
 };
+
+});

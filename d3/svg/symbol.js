@@ -1,7 +1,4 @@
-import "../arrays/map";
-import "../core/functor";
-import "../math/trigonometry";
-import "svg";
+define(["../arrays/map","../core/functor","../math/trigonometry","./svg"], function() {
 
 d3.svg.symbol = function() {
   var type = d3_svg_symbolType,
@@ -103,3 +100,5 @@ d3.svg.symbolTypes = d3_svg_symbols.keys();
 
 var d3_svg_symbolSqrt3 = Math.sqrt(3),
     d3_svg_symbolTan30 = Math.tan(30 * d3_radians);
+
+});

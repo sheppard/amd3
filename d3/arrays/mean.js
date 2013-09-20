@@ -1,4 +1,4 @@
-import "../math/number";
+define(["d3/base","../math/number"], function(d3) {
 
 d3.mean = function(array, f) {
   var n = array.length,
@@ -13,3 +13,6 @@ d3.mean = function(array, f) {
   }
   return j ? m : undefined;
 };
+
+return d3.mean;
+});

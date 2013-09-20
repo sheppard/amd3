@@ -1,4 +1,4 @@
-import "layout";
+define(["./layout"], function() {
 
 // Implements hierarchical edge bundling using Holten's algorithm. For each
 // input link, a path is computed that travels through the tree, up the parent
@@ -57,3 +57,5 @@ function d3_layout_bundleLeastCommonAncestor(a, b) {
   }
   return sharedNode;
 }
+
+});

@@ -1,7 +1,4 @@
-import "geo";
-import "area";
-import "cartesian";
-import "../math/trigonometry";
+define(["./geo","./area","./cartesian","../math/trigonometry"], function() {
 
 function d3_geo_pointInPolygon(point, polygon) {
   var meridian = point[0],
@@ -66,3 +63,5 @@ function d3_geo_pointInPolygon(point, polygon) {
 
   return (polarAngle < -ε || polarAngle < ε && d3_geo_areaRingSum < 0) ^ (winding & 1);
 }
+
+});

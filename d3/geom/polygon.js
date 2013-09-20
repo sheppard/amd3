@@ -1,5 +1,4 @@
-import "../core/subclass";
-import "geom";
+define(["../core/subclass","./geom"], function() {
 
 d3.geom.polygon = function(coordinates) {
   d3_subclass(coordinates, d3_geom_polygonPrototype);
@@ -103,3 +102,5 @@ function d3_geom_polygonClosed(coordinates) {
       b = coordinates[coordinates.length - 1];
   return !(a[0] - b[0] || a[1] - b[1]);
 }
+
+});

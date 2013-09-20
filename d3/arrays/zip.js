@@ -1,4 +1,4 @@
-import "min";
+define(["d3/base","./min"], function(d3) {
 
 d3.zip = function() {
   if (!(n = arguments.length)) return [];
@@ -13,3 +13,6 @@ d3.zip = function() {
 function d3_zipLength(d) {
   return d.length;
 }
+
+return d3.zip;
+});

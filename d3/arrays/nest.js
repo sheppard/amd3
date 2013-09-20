@@ -1,4 +1,4 @@
-import "map";
+define(["d3/base","./map"], function(d3) {
 
 d3.nest = function() {
   var nest = {},
@@ -95,3 +95,6 @@ d3.nest = function() {
 
   return nest;
 };
+
+return d3.nest;
+});

@@ -1,33 +1,3 @@
-import "geo";
-import "area";
-import "bounds";
-import "centroid";
-import "circle";
-import "distance";
-import "graticule";
-import "greatArc";
-import "interpolate";
-import "length";
-import "path";
-import "path-area";
-import "path-buffer";
-import "path-centroid";
-import "path-context";
-import "projection";
-import "rotation";
-import "stream";
-import "transform";
-import "albers";
-import "albers-usa";
-import "azimuthal";
-import "azimuthal-equal-area";
-import "azimuthal-equidistant";
-import "conic-conformal";
-import "conic-equal-area";
-import "conic-equidistant";
-import "equirectangular";
-import "gnomonic";
-import "mercator";
-import "orthographic";
-import "stereographic";
-import "transverse-mercator";
+define(["./geo","./area","./bounds","./centroid","./circle","./distance","./graticule","./greatArc","./interpolate","./length","./path","./path-area","./path-buffer","./path-centroid","./path-context","./projection","./rotation","./stream","./transform","./albers","./albers-usa","./azimuthal","./azimuthal-equal-area","./azimuthal-equidistant","./conic-conformal","./conic-equal-area","./conic-equidistant","./equirectangular","./gnomonic","./mercator","./orthographic","./stereographic","./transverse-mercator"], function() {
+
+});

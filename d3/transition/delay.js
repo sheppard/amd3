@@ -1,5 +1,4 @@
-import "../selection/each";
-import "transition";
+define(["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.delay = function(value) {
   var id = this.id;
@@ -7,3 +6,5 @@ d3_transitionPrototype.delay = function(value) {
       ? function(node, i, j) { node.__transition__[id].delay = +value.call(node, node.__data__, i, j); }
       : (value = +value, function(node) { node.__transition__[id].delay = value; }));
 };
+
+});

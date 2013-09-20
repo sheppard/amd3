@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.filter = function(filter) {
   var subgroups = [],
@@ -26,3 +26,5 @@ function d3_selection_filter(selector) {
     return d3_selectMatches(this, selector);
   };
 }
+
+});

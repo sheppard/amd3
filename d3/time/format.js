@@ -1,9 +1,4 @@
-import "../arrays/map";
-import "../format/requote";
-import "day";
-import "format-localized";
-import "time";
-import "week";
+define(["../arrays/map","../format/requote","./day","./format-localized","./time","./week"], function() {
 
 d3_time.format = d3_time_format;
 
@@ -319,3 +314,5 @@ function d3_time_parseLiteralPercent(date, string, i) {
   var n = d3_time_percentRe.exec(string.substring(i, i + 1));
   return n ? i + n[0].length : -1;
 }
+
+});

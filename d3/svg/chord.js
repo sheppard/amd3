@@ -1,9 +1,4 @@
-import "../core/functor";
-import "../core/source";
-import "../core/target";
-import "../math/trigonometry";
-import "arc";
-import "svg";
+define(["../core/functor","../core/source","../core/target","../math/trigonometry","./arc","./svg"], function() {
 
 d3.svg.chord = function() {
   var source = d3_source,
@@ -88,3 +83,5 @@ d3.svg.chord = function() {
 function d3_svg_chordRadius(d) {
   return d.radius;
 }
+
+});

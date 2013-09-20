@@ -1,23 +1,6 @@
-import "start";
-import "compat/";
+define(["d3/base","d3/compat/index","d3/arrays/index","d3/behavior/index","d3/color/index","d3/core/index","d3/dsv/index","d3/event/index","d3/format/index","d3/geo/index","d3/geom/index","d3/interpolate/index","d3/layout/index","d3/math/index","d3/scale/index","d3/selection/index","d3/svg/index","d3/time/index","d3/transition/index","d3/xhr/index"], function(d3) {
 
-import "arrays/";
-import "behavior/";
-import "color/";
-import "core/";
-import "dsv/";
-import "event/";
-import "format/";
-import "geo/";
-import "geom/";
-import "interpolate/";
-import "layout/";
-import "math/";
-import "scale/";
-import "selection/";
-import "svg/";
-import "time/";
-import "transition/";
-import "xhr/";
 
-import "end";
+
+return d3;
+});

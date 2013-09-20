@@ -1,9 +1,4 @@
-import "../math/trigonometry";
-import "cartesian";
-import "clip";
-import "circle";
-import "spherical";
-import "point-in-polygon";
+define(["../math/trigonometry","./cartesian","./clip","./circle","./spherical","./point-in-polygon"], function() {
 
 // Clip features against a small circle centered at [0°, 0°].
 function d3_geo_clipCircle(radius) {
@@ -180,3 +175,5 @@ function d3_geo_clipCircle(radius) {
     return d3_geo_pointInPolygon(point, polygon);
   }
 }
+
+});

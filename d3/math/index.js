@@ -1,2 +1,3 @@
-import "random";
-import "transform";
+define(["./random","./transform"], function() {
+
+});

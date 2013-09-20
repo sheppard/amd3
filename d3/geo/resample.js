@@ -1,6 +1,4 @@
-import "../math/trigonometry";
-import "cartesian";
-import "stream";
+define(["../math/trigonometry","./cartesian","./stream"], function() {
 
 function d3_geo_resample(project) {
   var δ2 = .5, // precision, px²
@@ -96,3 +94,5 @@ function d3_geo_resample(project) {
 
   return resample;
 }
+
+});

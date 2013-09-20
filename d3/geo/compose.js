@@ -1,3 +1,4 @@
+define(function() {
 function d3_geo_compose(a, b) {
 
   function compose(x, y) {
@@ -10,3 +11,5 @@ function d3_geo_compose(a, b) {
 
   return compose;
 }
+
+});

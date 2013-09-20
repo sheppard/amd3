@@ -1,8 +1,4 @@
-import "../arrays/map";
-import "color";
-import "hsl";
-import "lab";
-import "xyz";
+define(["d3/base","../arrays/map","./color","./hsl","./lab","./xyz"], function(d3) {
 
 d3.rgb = function(r, g, b) {
   return arguments.length === 1
@@ -306,4 +302,7 @@ var d3_rgb_names = d3.map({
 
 d3_rgb_names.forEach(function(key, value) {
   d3_rgb_names.set(key, d3_rgbNumber(value));
+});
+
+return d3.rgb;
 });

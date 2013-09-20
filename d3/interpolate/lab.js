@@ -1,4 +1,4 @@
-import "../color/lab";
+define(["../color/lab"], function() {
 
 d3.interpolateLab = d3_interpolateLab;
 
@@ -15,3 +15,5 @@ function d3_interpolateLab(a, b) {
     return d3_lab_rgb(al + bl * t, aa + ba * t, ab + bb * t) + "";
   };
 }
+
+});

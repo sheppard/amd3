@@ -1,7 +1,4 @@
-import "../arrays/map";
-import "../arrays/permute";
-import "../arrays/range";
-import "layout";
+define(["../arrays/map","../arrays/permute","../arrays/range","./layout"], function() {
 
 // data is two-dimensional array of x,y; we populate y0
 d3.layout.stack = function() {
@@ -243,3 +240,5 @@ function d3_layout_stackReduceSum(d) {
 function d3_layout_stackSum(p, d) {
   return p + d[1];
 }
+
+});

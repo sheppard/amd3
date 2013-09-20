@@ -1,6 +1,4 @@
-import "../arrays/merge";
-import "../core/rebind";
-import "layout";
+define(["../arrays/merge","../core/rebind","./layout"], function() {
 
 d3.layout.hierarchy = function() {
   var sort = d3_layout_hierarchySort,
@@ -114,3 +112,5 @@ function d3_layout_hierarchyLinks(nodes) {
     });
   }));
 }
+
+});

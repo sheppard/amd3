@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 // Copies a variable number of methods from source to target.
 d3.rebind = function(target, source) {
   var i = 1, n = arguments.length, method;
@@ -14,3 +15,6 @@ function d3_rebind(target, source, method) {
     return value === source ? target : value;
   };
 }
+
+return d3.rebind;
+});

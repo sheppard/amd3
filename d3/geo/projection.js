@@ -1,16 +1,4 @@
-import "../core/identity";
-import "../core/rebind";
-import "../math/trigonometry";
-import "clip-antimeridian";
-import "clip-circle";
-import "clip-extent";
-import "compose";
-import "geo";
-import "path";
-import "resample";
-import "rotation";
-import "stream";
-import "transform";
+define(["../core/identity","../core/rebind","../math/trigonometry","./clip-antimeridian","./clip-circle","./clip-extent","./compose","./geo","./path","./resample","./rotation","./stream","./transform"], function() {
 
 d3.geo.projection = d3_geo_projection;
 d3.geo.projectionMutator = d3_geo_projectionMutator;
@@ -123,3 +111,5 @@ function d3_geo_projectionRadiansRotate(rotate, stream) {
   };
   return transform;
 }
+
+});

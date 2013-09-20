@@ -1,10 +1,4 @@
-import "../color/color";
-import "../color/rgb";
-import "rgb";
-import "object";
-import "array";
-import "number";
-import "string";
+define(["d3/base","../color/color","../color/rgb","./rgb","./object","./array","./number","./string"], function(d3) {
 
 d3.interpolate = d3_interpolate;
 
@@ -23,3 +17,6 @@ d3.interpolators = [
         : d3_interpolateNumber)(a, b);
   }
 ];
+
+return d3.interpolate;
+});

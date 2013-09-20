@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.insert = function(name, before) {
   name = d3_selection_creator(name);
@@ -7,3 +7,5 @@ d3_selectionPrototype.insert = function(name, before) {
     return this.insertBefore(name.apply(this, arguments), before.apply(this, arguments));
   });
 };
+
+});

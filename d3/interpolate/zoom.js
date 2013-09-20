@@ -1,4 +1,4 @@
-import "../math/trigonometry";
+define(["../math/trigonometry"], function() {
 
 var ρ = Math.SQRT2,
     ρ2 = 2,
@@ -45,3 +45,5 @@ d3.interpolateZoom = function(p0, p1) {
 
   return interpolate;
 };
+
+});

@@ -1,8 +1,4 @@
-import "../core/functor";
-import "../core/identity";
-import "../core/true";
-import "svg";
-import "line";
+define(["../core/functor","../core/identity","../core/true","./svg","./line"], function() {
 
 function d3_svg_area(projection) {
   var x0 = d3_svg_lineX,
@@ -118,3 +114,5 @@ d3_svg_lineStepAfter.reverse = d3_svg_lineStepBefore;
 d3.svg.area = function() {
   return d3_svg_area(d3_identity);
 };
+
+});

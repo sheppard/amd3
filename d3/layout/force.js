@@ -1,11 +1,4 @@
-import "../behavior/drag";
-import "../core/identity";
-import "../core/rebind";
-import "../event/event";
-import "../event/dispatch";
-import "../event/timer";
-import "../geom/quadtree";
-import "layout";
+define(["../behavior/drag","../core/identity","../core/rebind","../event/event","../event/dispatch","../event/timer","../geom/quadtree","./layout"], function() {
 
 // A rudimentary force layout using Gauss-Seidel.
 d3.layout.force = function() {
@@ -357,3 +350,5 @@ function d3_layout_forceAccumulate(quad, alpha, charges) {
 
 var d3_layout_forceLinkDistance = 20,
     d3_layout_forceLinkStrength = 1;
+
+});

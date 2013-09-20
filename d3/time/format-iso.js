@@ -1,6 +1,4 @@
-import "format";
-import "format-utc";
-import "time";
+define(["./format","./format-utc","./time"], function() {
 
 var d3_time_formatIso = d3_time_formatUtc("%Y-%m-%dT%H:%M:%S.%LZ");
 
@@ -18,3 +16,5 @@ d3_time_formatIsoNative.parse = function(string) {
 };
 
 d3_time_formatIsoNative.toString = d3_time_formatIso.toString;
+
+});

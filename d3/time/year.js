@@ -1,6 +1,4 @@
-import "day";
-import "interval";
-import "time";
+define(["./day","./interval","./time"], function() {
 
 d3_time.year = d3_time_interval(function(date) {
   date = d3_time.day(date);
@@ -14,3 +12,5 @@ d3_time.year = d3_time_interval(function(date) {
 
 d3_time.years = d3_time.year.range;
 d3_time.years.utc = d3_time.year.utc.range;
+
+});

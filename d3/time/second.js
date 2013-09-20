@@ -1,5 +1,4 @@
-import "interval";
-import "time";
+define(["./interval","./time"], function() {
 
 d3_time.second = d3_time_interval(function(date) {
   return new d3_date(Math.floor(date / 1e3) * 1e3);
@@ -11,3 +10,5 @@ d3_time.second = d3_time_interval(function(date) {
 
 d3_time.seconds = d3_time.second.range;
 d3_time.seconds.utc = d3_time.second.utc.range;
+
+});

@@ -1,6 +1,4 @@
-import "azimuthal";
-import "geo";
-import "projection";
+define(["./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_orthographic = d3_geo_azimuthal(
   function() { return 1; },
@@ -10,3 +8,5 @@ var d3_geo_orthographic = d3_geo_azimuthal(
 (d3.geo.orthographic = function() {
   return d3_geo_projection(d3_geo_orthographic);
 }).raw = d3_geo_orthographic;
+
+});

@@ -1,5 +1,4 @@
-import "selection";
-import "enter";
+define(["./selection","./enter"], function() {
 
 d3_selection_enterPrototype.insert = function(name, before) {
   if (arguments.length < 2) before = d3_selection_enterInsertBefore(this);
@@ -18,3 +17,5 @@ function d3_selection_enterInsertBefore(enter) {
     return node;
   };
 }
+
+});

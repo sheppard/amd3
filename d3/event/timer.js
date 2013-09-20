@@ -1,5 +1,4 @@
-import "../core/document";
-import "../core/vendor";
+define(["d3/base","../core/document","../core/vendor"], function(d3) {
 
 var d3_timer_queueHead,
     d3_timer_queueTail,
@@ -83,3 +82,6 @@ function d3_timer_sweep() {
   d3_timer_queueTail = t0;
   return time;
 }
+
+return d3.timer;
+});

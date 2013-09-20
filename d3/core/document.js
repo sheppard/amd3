@@ -1,4 +1,4 @@
-import "array";
+define(["./array"], function() {
 
 var d3_document = document,
     d3_documentElement = d3_document.documentElement,
@@ -14,3 +14,5 @@ try {
     return array;
   };
 }
+
+});

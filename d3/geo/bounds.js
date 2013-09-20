@@ -1,10 +1,4 @@
-import "../core/identity";
-import "../core/noop";
-import "geo";
-import "stream";
-import "area";
-import "cartesian";
-import "spherical";
+define(["../core/identity","../core/noop","./geo","./stream","./area","./cartesian","./spherical"], function() {
 
 d3.geo.bounds = (function() {
   var λ0, φ0, λ1, φ1, // bounds
@@ -167,3 +161,5 @@ d3.geo.bounds = (function() {
         : [[λ0, φ0], [λ1, φ1]];
   };
 })();
+
+});

@@ -1,4 +1,4 @@
-import "interpolate";
+define(["./interpolate"], function() {
 
 d3.interpolateArray = d3_interpolateArray;
 
@@ -17,3 +17,5 @@ function d3_interpolateArray(a, b) {
     return c;
   };
 }
+
+});

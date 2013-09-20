@@ -1,6 +1,4 @@
-import "layout";
-import "hierarchy";
-import "tree";
+define(["./layout","./hierarchy","./tree"], function() {
 
 d3.layout.pack = function() {
   var hierarchy = d3.layout.hierarchy().sort(d3_layout_packSort),
@@ -210,3 +208,5 @@ function d3_layout_packPlace(a, b, c) {
     c.y = a.y;
   }
 }
+
+});

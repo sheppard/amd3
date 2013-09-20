@@ -1,6 +1,4 @@
-import "../arrays/range";
-import "../math/trigonometry";
-import "layout";
+define(["../arrays/range","../math/trigonometry","./layout"], function() {
 
 d3.layout.chord = function() {
   var chord = {},
@@ -155,3 +153,5 @@ d3.layout.chord = function() {
 
   return chord;
 };
+
+});

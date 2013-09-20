@@ -1,5 +1,4 @@
-import "../core/array";
-import "selection";
+define(["../core/array","./selection"], function() {
 
 d3_selectionPrototype.selectAll = function(selector) {
   var subgroups = [],
@@ -25,3 +24,5 @@ function d3_selection_selectorAll(selector) {
     return d3_selectAll(selector, this);
   };
 }
+
+});

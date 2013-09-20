@@ -1,6 +1,4 @@
-import "area";
-import "svg";
-import "line-radial";
+define(["./area","./svg","./line-radial"], function() {
 
 d3.svg.area.radial = function() {
   var area = d3_svg_area(d3_svg_lineRadial);
@@ -12,3 +10,5 @@ d3.svg.area.radial = function() {
   area.endAngle = area.y1, delete area.y1;
   return area;
 };
+
+});

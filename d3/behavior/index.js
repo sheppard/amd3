@@ -1,3 +1,3 @@
-import "behavior";
-import "drag";
-import "zoom";
+define(["./behavior","./drag","./zoom"], function() {
+
+});

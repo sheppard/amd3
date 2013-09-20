@@ -1,4 +1,4 @@
-import "../color/hsl";
+define(["../color/hsl"], function() {
 
 d3.interpolateHsl = d3_interpolateHsl;
 
@@ -18,3 +18,5 @@ function d3_interpolateHsl(a, b) {
     return d3_hsl_rgb(ah + bh * t, as + bs * t, al + bl * t) + "";
   };
 }
+
+});

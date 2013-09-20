@@ -1,4 +1,4 @@
-import "../core/noop";
+define(["../core/noop"], function() {
 
 var d3_geo_pathBoundsX0,
     d3_geo_pathBoundsY0,
@@ -19,3 +19,5 @@ function d3_geo_pathBoundsPoint(x, y) {
   if (y < d3_geo_pathBoundsY0) d3_geo_pathBoundsY0 = y;
   if (y > d3_geo_pathBoundsY1) d3_geo_pathBoundsY1 = y;
 }
+
+});

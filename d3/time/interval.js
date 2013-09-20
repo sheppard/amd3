@@ -1,4 +1,4 @@
-import "time";
+define(["./time"], function() {
 
 function d3_time_interval(local, step, number) {
 
@@ -69,3 +69,5 @@ function d3_time_interval_utc(method) {
     }
   };
 }
+
+});

@@ -1,7 +1,4 @@
-import "../core/identity";
-import "azimuthal";
-import "geo";
-import "projection";
+define(["../core/identity","./azimuthal","./geo","./projection"], function() {
 
 var d3_geo_azimuthalEquidistant = d3_geo_azimuthal(
   function(cosλcosφ) { var c = Math.acos(cosλcosφ); return c && c / Math.sin(c); },
@@ -11,3 +8,5 @@ var d3_geo_azimuthalEquidistant = d3_geo_azimuthal(
 (d3.geo.azimuthalEquidistant = function() {
   return d3_geo_projection(d3_geo_azimuthalEquidistant);
 }).raw = d3_geo_azimuthalEquidistant;
+
+});

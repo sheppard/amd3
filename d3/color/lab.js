@@ -1,7 +1,4 @@
-import "../math/trigonometry";
-import "color";
-import "hcl";
-import "rgb";
+define(["d3/base","../math/trigonometry","./color","./hcl","./rgb"], function(d3) {
 
 d3.lab = function(l, a, b) {
   return arguments.length === 1
@@ -66,3 +63,6 @@ function d3_lab_hcl(l, a, b) {
 function d3_lab_xyz(x) {
   return x > 0.206893034 ? x * x * x : (x - 4 / 29) / 7.787037;
 }
+
+return d3.lab;
+});

@@ -1,4 +1,4 @@
-import "../color/hcl";
+define(["../color/hcl"], function() {
 
 d3.interpolateHcl = d3_interpolateHcl;
 
@@ -18,3 +18,5 @@ function d3_interpolateHcl(a, b) {
     return d3_hcl_lab(ah + bh * t, ac + bc * t, al + bl * t) + "";
   };
 }
+
+});

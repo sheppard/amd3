@@ -1,14 +1,3 @@
-import "array";
-import "ease";
-import "hcl";
-import "hsl";
-import "interpolate";
-import "lab";
-import "number";
-import "object";
-import "rgb";
-import "round";
-import "string";
-import "transform";
-import "uninterpolate";
-import "zoom";
+define(["./array","./ease","./hcl","./hsl","./interpolate","./lab","./number","./object","./rgb","./round","./string","./transform","./uninterpolate","./zoom"], function() {
+
+});

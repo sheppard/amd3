@@ -1,6 +1,4 @@
-import "../core/array";
-import "event";
-import "mouse";
+define(["d3/base","../core/array","./event","./mouse"], function(d3) {
 
 d3.touches = function(container, touches) {
   if (arguments.length < 2) touches = d3_eventSource().touches;
@@ -10,3 +8,6 @@ d3.touches = function(container, touches) {
     return point;
   }) : [];
 };
+
+return d3.touches;
+});

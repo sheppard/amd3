@@ -1,5 +1,4 @@
-import "../selection/select";
-import "transition";
+define(["../selection/select","./transition"], function() {
 
 d3_transitionPrototype.selectAll = function(selector) {
   var id = this.id,
@@ -28,3 +27,5 @@ d3_transitionPrototype.selectAll = function(selector) {
 
   return d3_transition(subgroups, id);
 };
+
+});

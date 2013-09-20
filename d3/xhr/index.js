@@ -1,5 +1,3 @@
-import "xhr";
-import "text";
-import "json";
-import "html";
-import "xml";
+define(["./xhr","./text","./json","./html","./xml"], function() {
+
+});

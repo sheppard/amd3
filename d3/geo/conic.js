@@ -1,5 +1,4 @@
-import "../math/trigonometry";
-import "projection";
+define(["../math/trigonometry","./projection"], function() {
 
 function d3_geo_conic(projectAt) {
   var φ0 = 0,
@@ -14,3 +13,5 @@ function d3_geo_conic(projectAt) {
 
   return p;
 }
+
+});

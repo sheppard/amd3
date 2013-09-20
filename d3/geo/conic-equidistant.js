@@ -1,8 +1,4 @@
-import "../math/trigonometry";
-import "conic";
-import "equirectangular";
-import "geo";
-import "projection";
+define(["../math/trigonometry","./conic","./equirectangular","./geo","./projection"], function() {
 
 function d3_geo_conicEquidistant(φ0, φ1) {
   var cosφ0 = Math.cos(φ0),
@@ -33,3 +29,5 @@ function d3_geo_conicEquidistant(φ0, φ1) {
 (d3.geo.conicEquidistant = function() {
   return d3_geo_conic(d3_geo_conicEquidistant);
 }).raw = d3_geo_conicEquidistant;
+
+});

@@ -1,5 +1,4 @@
-import "../selection/each";
-import "transition";
+define(["../selection/each","./transition"], function() {
 
 d3_transitionPrototype.each = function(type, listener) {
   var id = this.id;
@@ -21,3 +20,5 @@ d3_transitionPrototype.each = function(type, listener) {
   }
   return this;
 };
+
+});

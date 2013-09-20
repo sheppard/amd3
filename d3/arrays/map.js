@@ -1,4 +1,4 @@
-import "../core/class";
+define(["d3/base","../core/class"], function(d3) {
 
 d3.map = function(object) {
   var map = new d3_Map;
@@ -49,3 +49,6 @@ d3_class(d3_Map, {
 
 var d3_map_prefix = "\0", // prevent collision with built-ins
     d3_map_prefixCode = d3_map_prefix.charCodeAt(0);
+
+return d3.map;
+});

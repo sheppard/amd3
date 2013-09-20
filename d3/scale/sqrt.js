@@ -1,6 +1,7 @@
-import "pow";
-import "scale";
+define(["./pow","./scale"], function() {
 
 d3.scale.sqrt = function() {
   return d3.scale.pow().exponent(.5);
 };
+
+});

@@ -1,2 +1,3 @@
-import "date";
-import "style";
+define(["./date","./style"], function() {
+
+});

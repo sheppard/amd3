@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.shuffle = function(array) {
   var m = array.length, t, i;
   while (m) {
@@ -6,3 +7,6 @@ d3.shuffle = function(array) {
   }
   return array;
 };
+
+return d3.shuffle;
+});

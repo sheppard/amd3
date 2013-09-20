@@ -1,5 +1,4 @@
-import "../selection/filter";
-import "transition";
+define(["../selection/filter","./transition"], function() {
 
 d3_transitionPrototype.filter = function(filter) {
   var subgroups = [],
@@ -20,3 +19,5 @@ d3_transitionPrototype.filter = function(filter) {
 
   return d3_transition(subgroups, this.id);
 };
+
+});

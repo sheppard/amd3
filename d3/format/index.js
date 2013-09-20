@@ -1,4 +1,3 @@
-import "format";
-import "formatPrefix";
-import "requote";
-import "round";
+define(["./format","./formatPrefix","./requote","./round"], function() {
+
+});

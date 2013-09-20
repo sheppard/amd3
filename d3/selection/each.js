@@ -1,4 +1,4 @@
-import "selection";
+define(["./selection"], function() {
 
 d3_selectionPrototype.each = function(callback) {
   return d3_selection_each(this, function(node, i, j) {
@@ -14,3 +14,5 @@ function d3_selection_each(groups, callback) {
   }
   return groups;
 }
+
+});

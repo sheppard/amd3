@@ -1,1 +1,3 @@
-import "selection";
+define(["./selection"], function() {
+
+});

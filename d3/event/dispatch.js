@@ -1,4 +1,4 @@
-import "../arrays/map";
+define(["d3/base","../arrays/map"], function(d3) {
 
 d3.dispatch = function() {
   var dispatch = new d3_dispatch,
@@ -67,3 +67,6 @@ function d3_dispatch_event(dispatch) {
 
   return event;
 }
+
+return d3.dispatch;
+});

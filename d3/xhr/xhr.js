@@ -1,8 +1,4 @@
-import "../core/array";
-import "../core/document";
-import "../core/identity";
-import "../core/rebind";
-import "../event/dispatch";
+define(["d3/base","../core/array","../core/document","../core/identity","../core/rebind","../event/dispatch"], function(d3) {
 
 d3.xhr = d3_xhrType(d3_identity);
 
@@ -117,3 +113,6 @@ function d3_xhr_fixCallback(callback) {
       ? function(error, request) { callback(error == null ? request : null); }
       : callback;
 }
+
+return d3.xhr;
+});

@@ -1,5 +1,4 @@
-import "../svg/line";
-import "geom";
+define(["../svg/line","./geom"], function() {
 
 /**
  * Computes the 2D convex hull of a set of points using Graham's scanning
@@ -118,3 +117,5 @@ function d3_geom_hullCCW(i1, i2, i3, v) {
   t = v[i3]; e = t[0]; f = t[1];
   return (f - b) * (c - a) - (d - b) * (e - a) > 0;
 }
+
+});

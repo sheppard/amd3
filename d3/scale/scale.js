@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.scale = {};
 
 function d3_scaleExtent(domain) {
@@ -8,3 +9,6 @@ function d3_scaleExtent(domain) {
 function d3_scaleRange(scale) {
   return scale.rangeExtent ? scale.rangeExtent() : d3_scaleExtent(scale.range());
 }
+
+return d3.scale;
+});

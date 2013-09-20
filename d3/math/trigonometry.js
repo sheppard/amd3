@@ -1,3 +1,4 @@
+define(function() {
 var π = Math.PI,
     ε = 1e-6,
     ε2 = ε * ε,
@@ -31,3 +32,5 @@ function d3_tanh(x) {
 function d3_haversin(x) {
   return (x = Math.sin(x / 2)) * x;
 }
+
+});

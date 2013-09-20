@@ -1,5 +1,3 @@
-import "dispatch";
-import "event";
-import "mouse";
-import "touches";
-import "timer";
+define(["./dispatch","./event","./mouse","./touches","./timer"], function() {
+
+});

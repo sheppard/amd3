@@ -1,5 +1,4 @@
-import "../core/noop";
-import "../math/trigonometry";
+define(["../core/noop","../math/trigonometry"], function() {
 
 function d3_geo_pathContext(context) {
   var pointRadius = 4.5;
@@ -47,3 +46,5 @@ function d3_geo_pathContext(context) {
 
   return stream;
 }
+
+});

@@ -1,3 +1,4 @@
+define(["d3/base"], function(d3) {
 d3.max = function(array, f) {
   var i = -1,
       n = array.length,
@@ -12,3 +13,6 @@ d3.max = function(array, f) {
   }
   return a;
 };
+
+return d3.max;
+});

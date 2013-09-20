@@ -1,5 +1,4 @@
-import "../arrays/ascending";
-import "selection";
+define(["../arrays/ascending","./selection"], function() {
 
 d3_selectionPrototype.sort = function(comparator) {
   comparator = d3_selection_sortComparator.apply(this, arguments);
@@ -13,3 +12,5 @@ function d3_selection_sortComparator(comparator) {
     return a && b ? comparator(a.__data__, b.__data__) : !a - !b;
   };
 }
+
+});

@@ -1,6 +1,4 @@
-import "interval";
-import "time";
-import "year";
+define(["./interval","./time","./year"], function() {
 
 d3_time.day = d3_time_interval(function(date) {
   var day = new d3_date(2000, 0);
@@ -19,3 +17,5 @@ d3_time.dayOfYear = function(date) {
   var year = d3_time.year(date);
   return Math.floor((date - year - (date.getTimezoneOffset() - year.getTimezoneOffset()) * 6e4) / 864e5);
 };
+
+});
