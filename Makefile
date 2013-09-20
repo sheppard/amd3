@@ -1,10 +1,11 @@
 LOCALE ?= en_US
 
 GENERATED_FILES = \
-	d3.js \
-	d3.min.js \
-	src/format/format-localized.js \
-	src/time/format-localized.js \
+	dist/d3.js \
+	dist/d3.min.js \
+	dist/amd/d3.js \
+	d3/format/format-localized.js \
+	d3/time/format-localized.js \
 	bower.json \
 	component.json
 
@@ -18,21 +19,27 @@ test:
 benchmark: all
 	@node test/geo/benchmark.js
 
-src/format/format-localized.js: bin/locale src/format/format-locale.js
-	LC_NUMERIC=$(LOCALE) LC_MONETARY=$(LOCALE) locale -ck LC_NUMERIC LC_MONETARY | bin/locale src/format/format-locale.js > $@
+d3/format/format-localized.js: bin/locale d3/format/format-locale.js
+	LC_NUMERIC=$(LOCALE) LC_MONETARY=$(LOCALE) locale -ck LC_NUMERIC LC_MONETARY | bin/locale d3/format/format-locale.js > $@
 
-src/time/format-localized.js: bin/locale src/time/format-locale.js
-	LC_TIME=$(LOCALE) locale -ck LC_TIME | bin/locale src/time/format-locale.js > $@
+d3/time/format-localized.js: bin/locale d3/time/format-locale.js
+	LC_TIME=$(LOCALE) locale -ck LC_TIME | bin/locale d3/time/format-locale.js > $@
 
-src/start.js: package.json bin/start
+d3/start.js: package.json bin/start
 	bin/start > $@
 
-d3.js: $(shell node_modules/.bin/smash --list src/d3.js) package.json
-	@rm -f $@
-	node_modules/.bin/smash src/d3.js | node_modules/.bin/uglifyjs - -b indent-level=2 -o $@
-	@chmod a-w $@
+d3/base.js: package.json bin/base
+	bin/base > $@
 
-d3.min.js: d3.js bin/uglify
+dist/amd/d3.js: d3/base.js d3/format/format-localized.js d3/time/format-localized.js package.json
+	@rm -f $@
+	node_modules/.bin/r.js -o build.amd.js
+
+dist/d3.js: d3/base.js d3/format/format-localized.js d3/time/format-localized.js package.json
+	@rm -f $@
+	node_modules/.bin/r.js -o build.js
+
+dist/d3.min.js: dist/d3.js bin/uglify
 	@rm -f $@
 	bin/uglify $< > $@
 
